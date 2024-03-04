@@ -48,5 +48,9 @@ class EmployeeAdmin(admin.ModelAdmin):
     fields = ('last_name', 'first_name', 'middle_name', 'email',
               'ranks', 'links', 'degree_history', 'study_interests',
               'diploma_work_topics', 'position', 'awards',
-              'time_created', 'time_last_modified', 'slug')
+              'time_created', 'time_last_modified', 'slug', 'image', 'teach_disciplines')
+    #  add 'chosen_publications' as many-to-many field between employee and scientific work;
+    # format view of image field in admin panel;
+    # format view of teach_disciplines in admin_panel;
+
     readonly_fields = ('slug', 'time_created', 'time_last_modified')

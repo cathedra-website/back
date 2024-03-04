@@ -2,6 +2,8 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from django.utils.text import slugify
+from unidecode import unidecode
+
 
 from files.models import File
 
@@ -47,13 +49,15 @@ class Employee(models.Model):
                                  verbose_name="Наукове звання")
     awards = ArrayField(models.CharField(max_length=512), blank=True, default=list, verbose_name="Академічні нагороди "
                                                                                                  "та премії")
-    image = models.ForeignKey(to=File,
-                              on_delete=models.SET_NULL,
-                              null=True,
-                              blank=True,
-                              related_name="image_employees",
-                              related_query_name="image_employee",
-                              verbose_name="Зображення")
+    # image = models.ForeignKey(to=File,
+    #                           on_delete=models.SET_NULL,
+    #                           null=True,
+    #                           blank=True,
+    #                           related_name="image_employees",
+    #                           related_query_name="image_employee",
+    #                           verbose_name="Зображення")
+
+    image = models.ImageField(upload_to='employee_images/', null=True, blank=True)
     chosen_publications = ArrayField(models.CharField(max_length=512), blank=True, default=list,
                                      verbose_name="Вибрані публікації")
     teach_disciplines = models.ManyToManyField(to="TeachDiscipline",
@@ -67,7 +71,9 @@ class Employee(models.Model):
     def save(
             self, force_insert=False, force_update=False, using=None, update_fields=None
     ):
-        self.slug = slugify(self.last_name + self.first_name + self.middle_name, allow_unicode=True)
+        cyrillic_name = f"{self.last_name}-{self.first_name}-{self.middle_name}"
+        latinic_name = unidecode(cyrillic_name)
+        self.slug = slugify(latinic_name, allow_unicode=True)
         super().save(force_insert, force_update, using, update_fields)
 
     class Meta:
@@ -86,7 +92,7 @@ class Employee(models.Model):
     def __str__(self):
         return f"Співробітник {self.last_name} {self.first_name} {self.middle_name}"
     # def save(self, *args, **kwargs):
-    #     # TODO: Is it work?
+    #     # TODO: Is it work? no, it doesn`t)))
     #     if not self.created_at and self.created_at:
     #         self.updated_at = timezone.now()
     #     super(Employee, self).save(*args, **kwargs)
