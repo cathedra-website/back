@@ -19,10 +19,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+from .swagger import schema_view
+
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('employees/', include('employees.urls', namespace="employees"))
+    path('employees/', include('employees.urls', namespace="employees")),
+    path('swagger/', schema_view.with_ui('swagger',cache_timeout=0), name='schema-swagger')
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = 'Панель адміністрування для сайту кафедри Інтелектуальних систем'
+admin.site.index_title = 'Сайт кафедри'

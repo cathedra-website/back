@@ -1,11 +1,12 @@
 from django.contrib import admin
-
+from django.utils.safestring import mark_safe
 
 from .models import Position, Employee, TeachDiscipline, ScientificWorkType, ScientificWork
 
 
 @admin.register(Position)
 class PositionAdmin(admin.ModelAdmin):
+
     fields = ("name",)
     list_display = ('name',)
     list_per_page = 10
@@ -28,6 +29,7 @@ class TeachDisciplineAdmin(admin.ModelAdmin):
     readonly_fields = ('time_created', 'time_last_modified')
     list_display = ('name', 'short_description')
     search_fields = ('name',)
+
     @staticmethod
     @admin.display(description="Опис")
     def short_description(discipline: TeachDiscipline):
@@ -48,9 +50,22 @@ class EmployeeAdmin(admin.ModelAdmin):
     fields = ('last_name', 'first_name', 'middle_name', 'email',
               'ranks', 'links', 'degree_history', 'study_interests',
               'diploma_work_topics', 'position', 'awards',
-              'time_created', 'time_last_modified', 'slug', 'image', 'teach_disciplines')
+              'time_created', 'time_last_modified', 'slug', 'image', 'teach_disciplines', 'employee_photo')
+    list_display = ('full_name','employee_photo')
     #  add 'chosen_publications' as many-to-many field between employee and scientific work;
     # format view of image field in admin panel;
     # format view of teach_disciplines in admin_panel;
 
-    readonly_fields = ('slug', 'time_created', 'time_last_modified')
+    readonly_fields = ('slug', 'time_created', 'time_last_modified', 'employee_photo', 'full_name')
+    ordering = ('position',)
+    list_filter = ('position__name',)
+    search_fields = ('last_name', 'first_name', 'middle_name', 'email', 'slug')
+
+    @admin.display(description='Фото')
+    def employee_photo(self, employee: Employee):
+        return mark_safe(f"<img src='{employee.image.url}' width=50>") if employee.image else 'Без фото'
+
+    @admin.display(description='ПІБ')
+    def full_name(self, employee: Employee):
+        return f'{employee.last_name} {employee.first_name} {employee.middle_name}'
+

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.postgres",
     # Libs, frameworks, etc.
     "rest_framework",
+    'drf_yasg',
     # Apps
     "employees",
     "files",

@@ -1,6 +1,10 @@
+from django.contrib.admin.widgets import AdminTextInputWidget
+from django.contrib.postgres.forms import SimpleArrayField
 from django.core.validators import RegexValidator
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
+from django import forms
+from django.forms.fields import CharField
 from django.utils.text import slugify
 from unidecode import unidecode
 
@@ -12,6 +16,11 @@ from files.models import File
 def links_default():
     """Default json style for Employee.links"""
     return {}
+
+
+class CustomArrayField(ArrayField):
+    def to_python(self, value):
+        return value[0].split(';')
 
 
 class Position(models.Model):
@@ -27,18 +36,37 @@ class Position(models.Model):
         return f"Наукове звання {self.name}"
 
 
+class TeachDiscipline(models.Model):
+    name = models.CharField(max_length=100, verbose_name="Назва наукової дисципліни")
+    description = models.TextField(max_length=5000, blank=True, verbose_name="Опис наукової дисципліни")
+    time_created = models.DateTimeField(auto_now_add=True, verbose_name="Час і дата створення")
+    time_last_modified = models.DateTimeField(auto_now=True, verbose_name="Час і дата останньої зміни")
+
+    class Meta:
+        verbose_name = 'Навчальна дисципліна'
+        verbose_name_plural = 'Навчальні дисципліни'
+        constraints = (models.UniqueConstraint(fields=('name',), name='discipline_name_unique_constraint'),)
+        indexes = (models.Index(fields=('name',), name='discipline_name_index'),
+                   )
+        get_latest_by = 'time_created'
+        ordering = ('-time_created',)
+
+    def __str__(self):
+        return f"Навчальна дисципліна {self.name}"
+
+
 class Employee(models.Model):
     last_name = models.CharField(blank=False, max_length=100, verbose_name="Прізвище")
     first_name = models.CharField(blank=False, max_length=100, verbose_name="Ім'я")
     middle_name = models.CharField(blank=False, max_length=100, verbose_name="По батькові")
     email = models.EmailField(verbose_name="Адреса електронної пошти", blank=True, null=True)
-    ranks = ArrayField(models.CharField(max_length=255), blank=True, default=list, verbose_name="Наукові ступені")
+    ranks = CustomArrayField(base_field=models.CharField(max_length=255), blank=True, default=list, verbose_name="Наукові ступені")
     links = models.JSONField(default=links_default, verbose_name="Посилання", blank=True)
     degree_history = models.TextField(verbose_name="Освіта та кар'єра")
-    study_interests = ArrayField(models.CharField(max_length=255), blank=True, default=list, verbose_name="Сфера "
+    study_interests = CustomArrayField(models.CharField(max_length=255), blank=True, default=list, verbose_name="Сфера "
                                                                                                           "наукових "
                                                                                                           "інтересів")
-    diploma_work_topics = ArrayField(models.CharField(max_length=255), blank=True, default=list, verbose_name="Теми "
+    diploma_work_topics = CustomArrayField(models.CharField(max_length=255), blank=True, default=list, verbose_name="Теми "
                                                                                                               "курсових та дипломних робіт")
     position = models.ForeignKey(to=Position,
                                  on_delete=models.SET_NULL,
@@ -47,7 +75,7 @@ class Employee(models.Model):
                                  related_name="position_employees",
                                  related_query_name="position_employee",
                                  verbose_name="Наукове звання")
-    awards = ArrayField(models.CharField(max_length=512), blank=True, default=list, verbose_name="Академічні нагороди "
+    awards = CustomArrayField(models.CharField(max_length=512), blank=True, default=list, verbose_name="Академічні нагороди "
                                                                                                  "та премії")
     # image = models.ForeignKey(to=File,
     #                           on_delete=models.SET_NULL,
@@ -58,9 +86,9 @@ class Employee(models.Model):
     #                           verbose_name="Зображення")
 
     image = models.ImageField(upload_to='employee_images/', null=True, blank=True)
-    chosen_publications = ArrayField(models.CharField(max_length=512), blank=True, default=list,
+    chosen_publications = CustomArrayField(models.CharField(max_length=512), blank=True, default=list,
                                      verbose_name="Вибрані публікації")
-    teach_disciplines = models.ManyToManyField(to="TeachDiscipline",
+    teach_disciplines = models.ManyToManyField(to=TeachDiscipline,
                                                related_name="discipline_employees",
                                                related_query_name="discipline_employee",
                                                verbose_name="Викладацька діяльність")
@@ -68,9 +96,7 @@ class Employee(models.Model):
     time_last_modified = models.DateTimeField(auto_now=True, verbose_name="Час останньої зміни сторінки співробітника")
     slug = models.SlugField(max_length=300, verbose_name="Слаг", allow_unicode=True)
 
-    def save(
-            self, force_insert=False, force_update=False, using=None, update_fields=None
-    ):
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         cyrillic_name = f"{self.last_name}-{self.first_name}-{self.middle_name}"
         latinic_name = unidecode(cyrillic_name)
         self.slug = slugify(latinic_name, allow_unicode=True)
@@ -91,30 +117,6 @@ class Employee(models.Model):
 
     def __str__(self):
         return f"Співробітник {self.last_name} {self.first_name} {self.middle_name}"
-    # def save(self, *args, **kwargs):
-    #     # TODO: Is it work? no, it doesn`t)))
-    #     if not self.created_at and self.created_at:
-    #         self.updated_at = timezone.now()
-    #     super(Employee, self).save(*args, **kwargs)
-
-
-class TeachDiscipline(models.Model):
-    name = models.CharField(max_length=100, verbose_name="Назва наукової дисципліни")
-    description = models.TextField(max_length=5000, blank=True, verbose_name="Опис наукової дисципліни")
-    time_created = models.DateTimeField(auto_now_add=True, verbose_name="Час і дата створення")
-    time_last_modified = models.DateTimeField(auto_now=True, verbose_name="Час і дата останньої зміни")
-
-    class Meta:
-        verbose_name = 'Навчальна дисципліна'
-        verbose_name_plural = 'Навчальні дисципліни'
-        constraints = (models.UniqueConstraint(fields=('name',), name='discipline_name_unique_constraint'),)
-        indexes = (models.Index(fields=('name',), name='discipline_name_index'),
-                   )
-        get_latest_by = 'time_created'
-        ordering = ('-time_created',)
-
-    def __str__(self):
-        return f"Навчальна дисципліна {self.name}"
 
 
 class ScientificWorkType(models.Model):

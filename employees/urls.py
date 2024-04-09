@@ -10,6 +10,4 @@ urlpatterns = [
     path('', EmployeeListView.as_view(), name='employee-list'),
     path('positionswithemployees/', PositionsWithEmployeesView.as_view(), name='positions'),
     path('<slug:slug>/', EmployeeDetailView.as_view(), name='employee-detail'),
-
-
 ]
