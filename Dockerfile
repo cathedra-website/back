@@ -30,7 +30,7 @@ WORKDIR $PYSETUP_PATH
 COPY poetry.lock pyproject.toml ./
 
 # Установка зависимостей проекта
-RUN poetry install --no-root
+RUN poetry config virtualenvs.create false && poetry install --no-dev
 
 # Финальный этап сборки проекта
 FROM python-base as production
