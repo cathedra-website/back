@@ -15,7 +15,7 @@ from files.models import File
 # TODO: Have to be changed to the view of the JSON
 def links_default():
     """Default json style for Employee.links"""
-    return {}
+    return {'Scopus': ''}
 
 
 class CustomArrayField(ArrayField):
@@ -77,13 +77,6 @@ class Employee(models.Model):
                                  verbose_name="Наукове звання")
     awards = CustomArrayField(models.CharField(max_length=512), blank=True, default=list, verbose_name="Академічні нагороди "
                                                                                                  "та премії")
-    # image = models.ForeignKey(to=File,
-    #                           on_delete=models.SET_NULL,
-    #                           null=True,
-    #                           blank=True,
-    #                           related_name="image_employees",
-    #                           related_query_name="image_employee",
-    #                           verbose_name="Зображення")
 
     image = models.ImageField(upload_to='employee_images/', null=True, blank=True)
     chosen_publications = CustomArrayField(models.CharField(max_length=512), blank=True, default=list,
@@ -91,7 +84,9 @@ class Employee(models.Model):
     teach_disciplines = models.ManyToManyField(to=TeachDiscipline,
                                                related_name="discipline_employees",
                                                related_query_name="discipline_employee",
-                                               verbose_name="Викладацька діяльність")
+                                               verbose_name="Викладацька діяльність",
+                                               blank=True,
+                                               null=True)
     time_created = models.DateTimeField(auto_now_add=True, verbose_name="Час створення сторінки співробітника")
     time_last_modified = models.DateTimeField(auto_now=True, verbose_name="Час останньої зміни сторінки співробітника")
     slug = models.SlugField(max_length=300, verbose_name="Слаг", allow_unicode=True)
@@ -126,7 +121,7 @@ class ScientificWorkType(models.Model):
     def save(
             self, force_insert=False, force_update=False, using=None, update_fields=None
     ):
-        self.slug = slugify(self.name, allow_unicode=True)
+        self.slug = slugify(unidecode(self.name), allow_unicode=True)
         super().save(force_insert, force_update, using, update_fields)
 
     class Meta:
@@ -151,24 +146,9 @@ class ScientificWork(models.Model):
         message='ISBN повинен мати формат XXX-XXX-XXX-XXX-X',
         code='invalid_format'
     )], verbose_name="ISBN")
-    image = models.OneToOneField(
-        to=File,
-        related_name="image_scientific_work",
-        related_query_name="image_scientific_work",
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        verbose_name="Зображення(титульна сторінка)"
-    )
-    file = models.ForeignKey(
-        to=File,
-        related_name="files_scientific_works",
-        related_query_name="file_scientific_work",
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        verbose_name="Файловий зміст"
-    )
+    image = models.ImageField(verbose_name="Обкладинка наукової роботи", upload_to='scientific_work_images', null=True,
+                              blank=True)
+    file = models.FileField(verbose_name='Вміст наукової роботи', upload_to='scientific_work_files', null=True, blank=True)
     type = models.ForeignKey(
         to=ScientificWorkType,
         on_delete=models.SET_NULL,

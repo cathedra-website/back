@@ -1,4 +1,8 @@
+import json
+
 from django.contrib import admin
+from django.db import models
+from django.forms import Textarea
 from django.utils.safestring import mark_safe
 
 from .models import Position, Employee, TeachDiscipline, ScientificWorkType, ScientificWork
@@ -29,6 +33,7 @@ class TeachDisciplineAdmin(admin.ModelAdmin):
     readonly_fields = ('time_created', 'time_last_modified')
     list_display = ('name', 'short_description')
     search_fields = ('name',)
+    list_per_page = 10
 
     @staticmethod
     @admin.display(description="Опис")
@@ -38,26 +43,35 @@ class TeachDisciplineAdmin(admin.ModelAdmin):
 
 @admin.register(ScientificWork)
 class ScientificWorkAdmin(admin.ModelAdmin):
-    fields = ('name', 'publishing_house', 'size', 'language', 'isbn', 'type', 'workers', 'coworkers', 'description')
+    fields = ('name', 'publishing_house', 'size', 'language', 'isbn', 'type', 'workers', 'coworkers', 'description', 'file', 'image')
     list_display = ('name', 'size')
     list_editable = ('size',)
     save_on_top = True
     search_fields = ('name', 'isbn')
+    list_per_page = 10
 
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    fields = ('last_name', 'first_name', 'middle_name', 'email',
-              'ranks', 'links', 'degree_history', 'study_interests',
-              'diploma_work_topics', 'position', 'awards',
-              'time_created', 'time_last_modified', 'slug', 'image', 'teach_disciplines', 'employee_photo')
-    list_display = ('full_name','employee_photo')
+    formfield_overrides = {
+        models.JSONField: {'widget': Textarea(attrs={'rows': 4, 'cols': 40})}
+    }
+    save_on_top = True
+    def default_links_value(self, employee:Employee):
+        default_links_value = self.model._meta.get_field('links').get_default()
+        return mark_safe(f'<pre>{json.dumps(default_links_value, indent=4)}</pre>')
+
+    fields = ('last_name', 'first_name', 'middle_name','degree_history', 'position', 'teach_disciplines','email',
+              'ranks', 'links',  'study_interests',
+              'diploma_work_topics', 'awards','image', 'employee_photo',
+              'time_created', 'time_last_modified', 'slug')
+    list_display = ('full_name', 'employee_photo')
     #  add 'chosen_publications' as many-to-many field between employee and scientific work;
     # format view of image field in admin panel;
     # format view of teach_disciplines in admin_panel;
 
     readonly_fields = ('slug', 'time_created', 'time_last_modified', 'employee_photo', 'full_name')
-    ordering = ('position',)
+    ordering = ('position', 'time_last_modified')
     list_filter = ('position__name',)
     search_fields = ('last_name', 'first_name', 'middle_name', 'email', 'slug')
 
