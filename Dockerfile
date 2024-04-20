@@ -47,4 +47,4 @@ WORKDIR /app
 EXPOSE 8000
 
 # Команда для запуска приложения через Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "backend.wsgi:application"]
+CMD ["poetry", "run", "gunicorn", "--bind", "0.0.0.0:8000", "backend.wsgi:application"]
