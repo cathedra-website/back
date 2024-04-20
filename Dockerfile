@@ -20,11 +20,10 @@ ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 # Этап сборки для установки зависимостей
 FROM python-base as builder-base
 
-RUN apt-get update && apt-get -y install libpq-dev gcc
+RUN apt-get update && apt-get -y install libpq-dev gcc && apt-get install -y gunicorn
 
 # Установка Poetry
 RUN pip install "poetry==$POETRY_VERSION"
-RUN pip install gunicorn
 
 # Копирование файлов зависимостей Poetry
 WORKDIR $PYSETUP_PATH
