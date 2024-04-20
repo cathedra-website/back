@@ -24,6 +24,7 @@ RUN apt-get update && apt-get -y install libpq-dev gcc
 
 # Установка Poetry
 RUN pip install "poetry==$POETRY_VERSION"
+RUN pip install gunicorn
 
 # Копирование файлов зависимостей Poetry
 WORKDIR $PYSETUP_PATH
