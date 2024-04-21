@@ -20,7 +20,7 @@ ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 # Этап сборки для установки зависимостей
 FROM python-base as builder-base
 
-RUN apt-get update && apt-get -y install libpq-dev gcc && apt-get install -y gunicorn
+RUN apt-get update && apt-get -y install libpq-dev gcc
 
 # Установка Poetry
 RUN pip install "poetry==$POETRY_VERSION"
@@ -31,6 +31,7 @@ COPY poetry.lock pyproject.toml ./
 
 # Установка зависимостей проекта
 RUN poetry config virtualenvs.create false && poetry install --no-dev
+RUN poetry add gunicorn
 
 # Финальный этап сборки проекта
 FROM python-base as production
