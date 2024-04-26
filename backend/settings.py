@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "employees",
     "files",
     "news",
+    "educational_degrees"
 ]
 
 MIDDLEWARE = [
