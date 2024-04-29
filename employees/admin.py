@@ -61,10 +61,10 @@ class EmployeeAdmin(admin.ModelAdmin):
         default_links_value = self.model._meta.get_field('links').get_default()
         return mark_safe(f'<pre>{json.dumps(default_links_value, indent=4)}</pre>')
 
-    fields = ('last_name', 'first_name', 'middle_name','degree_history', 'position', 'teach_disciplines','email',
+    fields = ('last_name', 'first_name', 'middle_name', 'degree_history', 'position', 'teach_disciplines','email',
               'ranks', 'links',  'study_interests',
-              'diploma_work_topics', 'awards','image', 'employee_photo',
-              'time_created', 'time_last_modified', 'slug')
+              'diploma_work_topics', 'awards', 'image', 'employee_photo',
+              'time_created', 'time_last_modified', 'slug', 'chosen_publications')
     list_display = ('full_name', 'employee_photo')
     #  add 'chosen_publications' as many-to-many field between employee and scientific work;
     # format view of image field in admin panel;

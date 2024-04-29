@@ -19,8 +19,13 @@ def links_default():
 
 
 class CustomArrayField(ArrayField):
-    def to_python(self, value):
-        return value[0].split(';')
+    def to_python(self, value: list[str]):
+        value = value[0].split(';')
+        try:
+            value.remove('')
+        except:
+            pass
+        return value
 
 
 class Position(models.Model):
@@ -60,13 +65,13 @@ class Employee(models.Model):
     first_name = models.CharField(blank=False, max_length=100, verbose_name="Ім'я")
     middle_name = models.CharField(blank=False, max_length=100, verbose_name="По батькові")
     email = models.EmailField(verbose_name="Адреса електронної пошти", blank=True, null=True)
-    ranks = CustomArrayField(base_field=models.CharField(max_length=255), blank=True, default=list, verbose_name="Наукові ступені")
+    ranks = CustomArrayField(base_field=models.CharField(max_length=1024), blank=True, default=list, verbose_name="Наукові ступені")
     links = models.JSONField(default=links_default, verbose_name="Посилання", blank=True)
     degree_history = models.TextField(verbose_name="Освіта та кар'єра")
-    study_interests = CustomArrayField(models.CharField(max_length=255), blank=True, default=list, verbose_name="Сфера "
+    study_interests = CustomArrayField(models.CharField(max_length=1024), blank=True, default=list, verbose_name="Сфера "
                                                                                                           "наукових "
                                                                                                           "інтересів")
-    diploma_work_topics = CustomArrayField(models.CharField(max_length=255), blank=True, default=list, verbose_name="Теми "
+    diploma_work_topics = CustomArrayField(models.CharField(max_length=1024), blank=True, default=list, verbose_name="Теми "
                                                                                                               "курсових та дипломних робіт")
     position = models.ForeignKey(to=Position,
                                  on_delete=models.SET_NULL,
@@ -75,18 +80,17 @@ class Employee(models.Model):
                                  related_name="position_employees",
                                  related_query_name="position_employee",
                                  verbose_name="Наукове звання")
-    awards = CustomArrayField(models.CharField(max_length=512), blank=True, default=list, verbose_name="Академічні нагороди "
+    awards = CustomArrayField(models.CharField(max_length=1024), blank=True, default=list, verbose_name="Академічні нагороди "
                                                                                                  "та премії")
 
     image = models.ImageField(upload_to='employee_images/', null=True, blank=True)
-    chosen_publications = CustomArrayField(models.CharField(max_length=512), blank=True, default=list,
+    chosen_publications = CustomArrayField(models.CharField(max_length=1024), blank=True, default=list,
                                      verbose_name="Вибрані публікації")
     teach_disciplines = models.ManyToManyField(to=TeachDiscipline,
                                                related_name="discipline_employees",
                                                related_query_name="discipline_employee",
                                                verbose_name="Викладацька діяльність",
-                                               blank=True,
-                                               null=True)
+                                               blank=True)
     time_created = models.DateTimeField(auto_now_add=True, verbose_name="Час створення сторінки співробітника")
     time_last_modified = models.DateTimeField(auto_now=True, verbose_name="Час останньої зміни сторінки співробітника")
     slug = models.SlugField(max_length=300, verbose_name="Слаг", allow_unicode=True)
