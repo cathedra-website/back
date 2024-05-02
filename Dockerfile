@@ -1,7 +1,5 @@
-# Используем базовый образ Python
 FROM python:3.10-slim-bullseye as python-base
 
-# Установка переменных окружения для Python и Poetry
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     PIP_NO_CACHE_DIR=off \
@@ -14,37 +12,33 @@ ENV PYTHONUNBUFFERED=1 \
     PYSETUP_PATH="/opt/pysetup" \
     VENV_PATH="/opt/pysetup/.venv"
 
-# Добавление Poetry и виртуальной среды в PATH
+# prepend poetry and venv to path
 ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 
-# Этап сборки для установки зависимостей
+###############################################
+# Builder Image
+###############################################
 FROM python-base as builder-base
 
-RUN apt-get update && apt-get -y install libpq-dev gcc
+RUN apt-get update \
+    && apt-get -y install libpq-dev gcc
 
-# Установка Poetry
-RUN pip install "poetry==$POETRY_VERSION"
+# install poetry - respects $POETRY_VERSION & $POETRY_HOME
+RUN pip install "poetry==$POETRY_VERSION" && poetry --version
 
-# Копирование файлов зависимостей Poetry
+# copy project requirement files here to ensure they will be cached.
 WORKDIR $PYSETUP_PATH
 COPY poetry.lock pyproject.toml ./
 
-# Установка зависимостей проекта
-RUN poetry config virtualenvs.create false && poetry install --no-dev
-RUN poetry add gunicorn
+# install runtime deps - uses $POETRY_VIRTUALENVS_IN_PROJECT internally
+RUN poetry install --no-root
 
-# Финальный этап сборки проекта
+###############################################
+# Production Image
+###############################################
 FROM python-base as production
-
-# Копирование установленных зависимостей
 COPY --from=builder-base $PYSETUP_PATH $PYSETUP_PATH
 COPY . /app/
-
-# Установка рабочей директории приложения
 WORKDIR /app
-
-# Открытие порта для Gunicorn
 EXPOSE 8000
-
-# Команда для запуска приложения через Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "backend.wsgi:application"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

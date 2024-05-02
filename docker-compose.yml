@@ -1,0 +1,42 @@
+services:
+  backend:
+    build:
+      context: ${BACK_DIR_PATH}/
+    command: python manage.py runserver 0.0.0.0:8000
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ${BACK_DIR_PATH}:/app
+    depends_on:
+      - db
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_HOST: ${DB_HOST}
+      POSTGRES_PORT: ${DB_PORT}
+
+  # frontend:
+  #   build:
+  #     context: ${FRONT_DIR_PATH}/
+  #   env_file:
+  #     - .env
+  #   ports:
+  #     - "3000:80"
+  #   volumes:
+  #     - ${FRONT_DIR_PATH}:/app
+
+  db:
+    image: postgres
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_HOST: ${DB_HOST}
+      POSTGRES_PORT: ${DB_PORT}
+    ports:
+     - "5432:5432"

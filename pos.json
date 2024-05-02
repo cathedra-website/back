@@ -1,0 +1,30 @@
+[
+    {
+    "model": "employees.position",
+    "pk": 1,
+    "fields": {
+      "name": "Завідувач"
+    }
+  },
+  {
+    "model": "employees.position",
+    "pk": 2,
+    "fields": {
+      "name": "Професор"
+    }
+  },
+  {
+    "model": "employees.position",
+    "pk": 3,
+    "fields": {
+      "name": "Доцент"
+    }
+  },
+  {
+    "model": "employees.position",
+    "pk": 4,
+    "fields": {
+      "name": "Доцент, вчений секретар кафедри інтелектуальних програмних систем"
+    }
+  }
+]
