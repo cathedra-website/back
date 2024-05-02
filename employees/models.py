@@ -50,7 +50,6 @@ class TeachDiscipline(models.Model):
     class Meta:
         verbose_name = 'Навчальна дисципліна'
         verbose_name_plural = 'Навчальні дисципліни'
-        constraints = (models.UniqueConstraint(fields=('name',), name='discipline_name_unique_constraint'),)
         indexes = (models.Index(fields=('name',), name='discipline_name_index'),
                    )
         get_latest_by = 'time_created'
