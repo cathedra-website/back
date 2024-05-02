@@ -30,8 +30,9 @@ RUN pip install "poetry==$POETRY_VERSION" && poetry --version
 WORKDIR $PYSETUP_PATH
 COPY poetry.lock pyproject.toml ./
 
-# install runtime deps - uses $POETRY_VIRTUALENVS_IN_PROJECT internally
-RUN poetry install --no-root
+# Установка зависимостей проекта
+RUN poetry install --no-dev --no-root
+
 
 ###############################################
 # Production Image
