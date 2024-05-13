@@ -1,0 +1,74 @@
+[
+  {
+      "model": "educational_degrees.educationaldegreedetailsfiles",
+      "pk": 1,
+      "fields": {
+        "file": "educational_degrees_files/details/bachelor/121-SE-2019-202x-program-description.pdf",
+        "name": "Опис освітньої програми 2019-202x років",
+        "uploaded_at": "2024-05-09T12:00:00Z"
+      }
+    },
+    {
+      "model": "educational_degrees.educationaldegreedetailsfiles",
+      "pk": 2,
+      "fields": {
+        "file": "educational_degrees_files/details/bachelor/121-SE-2016-2018-program-description.pdf",
+        "name": "Опис освітньої програми 2016-2018 років",
+        "uploaded_at": "2024-05-09T12:00:00Z"
+      }
+    },
+    {
+      "model": "educational_degrees.educationaldegreedetailsfiles",
+      "pk": 3,
+      "fields": {
+        "file": "educational_degrees_files/details/master/121-SE-2020-202x-program-description.pdf",
+        "name": "Опис освітньої програми 2019-202x років",
+        "uploaded_at": "2024-05-09T12:00:00Z"
+      }
+    },
+    {
+      "model": "educational_degrees.educationaldegreedetailsfiles",
+      "pk": 4,
+      "fields": {
+        "file": "educational_degrees_files/details/master/121-SE-2018-2019-program-description.pdf",
+        "name": "Опис освітньої програми 2016-2018 років",
+        "uploaded_at": "2024-05-09T12:00:00Z"
+      }
+    },
+    {
+      "model": "educational_degrees.educationaldegreestudyprogramsfiles",
+      "pk": 1,
+      "fields": {
+        "file": "educational_degrees_files/details/bachelor/121-SE-2019-202x-plan.pdf",
+        "name": "Навчальний план 2019-202x років",
+        "uploaded_at": "2024-05-09T12:00:00Z"
+      }
+    },
+    {
+      "model": "educational_degrees.educationaldegreestudyprogramsfiles",
+      "pk": 2,
+      "fields": {
+        "file": "educational_degrees_files/details/bachelor/121-SE-2016-2018-plan.pdf",
+        "name": "Навчальний план 2016-2018 років",
+        "uploaded_at": "2024-05-09T12:00:00Z"
+      }
+    },
+    {
+      "model": "educational_degrees.educationaldegreestudyprogramsfiles",
+      "pk": 3,
+      "fields": {
+        "file": "educational_degrees_files/details/master/121-SE-2020-202x-plan.pdf",
+        "name": "Навчальний план 2020-202x років",
+        "uploaded_at": "2024-05-09T12:00:00Z"
+      }
+    },
+    {
+      "model": "educational_degrees.educationaldegreestudyprogramsfiles",
+      "pk": 4,
+      "fields": {
+        "file": "educational_degrees_files/details/master/121-SE-2018-2019-plan.pdf",
+        "name": "Навчальний план 2018-2019 років",
+        "uploaded_at": "2024-05-09T12:00:00Z"
+      }
+    }
+]
