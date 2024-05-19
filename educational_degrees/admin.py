@@ -5,7 +5,8 @@ from django.db import models
 from django.forms import Textarea
 from django.utils.safestring import mark_safe
 
-from .models import (EducationalDegree, EducationalDegreeDetailsFiles, EducationalDegreeDisciplineProgramsFiles,
+from .models import (EducationalDegree, EducationalDegreeDetailsFiles, EducationalDegreeDisciplinePrograms,
+                     Subject, SubjectBlock,
                      EducationalDegreeStudyProgramsFiles, EducationalDegreeStudyPlansFiles,
                      EducationalDegreeQualificationWorks, QualificationWork)
 
@@ -28,6 +29,7 @@ class EducationalDegreeDetailsFilesAdmin(admin.ModelAdmin):
     list_per_page = 10
     search_fields = ('name',)
 
+
 @admin.register(EducationalDegreeStudyProgramsFiles)
 class EducationalDegreeStudyProgramsFilesAdmin(admin.ModelAdmin):
     fields = ("name", "file",)
@@ -35,12 +37,6 @@ class EducationalDegreeStudyProgramsFilesAdmin(admin.ModelAdmin):
     list_per_page = 10
     search_fields = ('name',)
 
-@admin.register(EducationalDegreeDisciplineProgramsFiles)
-class EducationalDegreeDisciplineProgramsFilesAdmin(admin.ModelAdmin):
-    fields = ("name", "file",)
-    list_display = ('name',)
-    list_per_page = 10
-    search_fields = ('name',)
 
 @admin.register(EducationalDegreeStudyPlansFiles)
 class EducationalDegreeStudyPlansFilesAdmin(admin.ModelAdmin):
@@ -49,14 +45,42 @@ class EducationalDegreeStudyPlansFilesAdmin(admin.ModelAdmin):
     list_per_page = 10
     search_fields = ('name',)
 
+
+@admin.register(EducationalDegreeDisciplinePrograms)
+class EducationalDegreeDisciplineProgramsFilesAdmin(admin.ModelAdmin):
+    fields = ("year", "slug", 'degree_name', 'subjects')
+    list_display = ('year', 'degree_name')
+    list_per_page = 10
+    search_fields = ('year', 'degree_name')
+
+    readonly_fields = ('slug',)
+
+
+@admin.register(Subject)
+class SubjectAdmin(admin.ModelAdmin):
+    fields = ("name", "block", "semester")
+    list_display = ('name',)
+    list_per_page = 10
+    search_fields = ('name',)
+
+
+@admin.register(SubjectBlock)
+class SubjectBlockAdmin(admin.ModelAdmin):
+    fields = ("name", "full_name")
+    list_display = ('name',)
+    list_per_page = 10
+    search_fields = ('name',)
+
+
 @admin.register(EducationalDegreeQualificationWorks)
 class EducationalDegreeQualificationWorksFilesAdmin(admin.ModelAdmin):
     fields = ("year", "qualification_work", 'degree_name', 'slug',)
-    list_display = ('year',)
+    list_display = ('year', 'degree_name')
     list_per_page = 10
-    search_fields = ('year',)
+    search_fields = ('year', 'degree_name')
 
     readonly_fields = ('slug',)
+
 
 @admin.register(QualificationWork)
 class QualificationWorkAdmin(admin.ModelAdmin):

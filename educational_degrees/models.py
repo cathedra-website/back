@@ -7,7 +7,6 @@ from employees.models import Employee
 
 
 class EducationalDegreeDetailsFiles(models.Model):
-
     file = models.FileField(upload_to='educational_degrees_files/', verbose_name="Файл")
     name = models.CharField(max_length=255, verbose_name="Назва файла")
     uploaded_at = models.DateTimeField(auto_now_add=True)
@@ -24,6 +23,7 @@ class EducationalDegreeStudyProgramsFiles(models.Model):
     file = models.FileField(upload_to='educational_degrees_files/', verbose_name="Файл")
     name = models.CharField(max_length=255, verbose_name="Назва файла")
     uploaded_at = models.DateTimeField(auto_now_add=True)
+
     def __str__(self):
         return f"Файл освітньої програми: {self.name}"
 
@@ -36,6 +36,7 @@ class EducationalDegreeStudyPlansFiles(models.Model):
     file = models.FileField(upload_to='educational_degrees_files/', verbose_name="Файл")
     name = models.CharField(max_length=255, verbose_name="Назва файла")
     uploaded_at = models.DateTimeField(auto_now_add=True)
+
     def __str__(self):
         return f"Файл навчального плану: {self.name}"
 
@@ -44,16 +45,63 @@ class EducationalDegreeStudyPlansFiles(models.Model):
         verbose_name_plural = "Файли навчальних планів"
 
 
-class EducationalDegreeDisciplineProgramsFiles(models.Model):
-    file = models.FileField(upload_to='educational_degrees_files/', verbose_name="Файл")
-    name = models.CharField(max_length=255, verbose_name="Назва файла")
-    uploaded_at = models.DateTimeField(auto_now_add=True)
+class SubjectBlock(models.Model):
+    name = models.CharField(max_length=255, verbose_name="Скорочена назва блоку")
+    full_name = models.CharField(max_length=255, verbose_name="Повна назва блоку")
+
     def __str__(self):
-        return f"Файл освітньої дисциплини: {self.name}"
+        return f"Блок навчальних дисциплин {self.name}"
 
     class Meta:
-        verbose_name = "Файл освітньої дисциплини"
-        verbose_name_plural = "Файли освітніх дисциплин"
+        verbose_name = "Блок навчальних дисциплин"
+        verbose_name_plural = "Блоки навчальних дисциплин"
+
+
+class Subject(models.Model):
+    name = models.CharField(max_length=255, verbose_name='Назва')
+    block = models.ForeignKey(
+        to=SubjectBlock,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="block_subject",
+        related_query_name="subject_block",
+        verbose_name="Блок навчальної дисциплини"
+    )
+    semester = models.IntegerField(verbose_name="Номер семестру")
+
+    def __str__(self):
+        return f"Навчальна дисциплина {self.name}"
+
+    class Meta:
+        verbose_name = "Навчальна дисциплина"
+        verbose_name_plural = "Навчальні дисциплини"
+
+
+class EducationalDegreeDisciplinePrograms(models.Model):
+    year = models.CharField(max_length=255, verbose_name="Рік")
+    slug = models.SlugField(max_length=300, verbose_name="Слаг", allow_unicode=True)
+    degree_name = models.CharField(max_length=255, verbose_name="Назва освітнього ступеня")
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    subjects = models.ManyToManyField(Subject,
+                                      verbose_name="Навчальні дисциплини",
+                                      related_name="subjects_disciplines",
+                                      related_query_name="disciplines_subjects",
+                                      blank=True
+                                      )
+
+    def __str__(self):
+        return f"Програма навчальної дисциплини за {self.year} рік"
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        latinic_name = unidecode(self.year) + '-' + unidecode(self.degree_name)
+        self.slug = slugify(latinic_name, allow_unicode=True)
+        super().save(force_insert, force_update, using, update_fields)
+
+    class Meta:
+        verbose_name = "Програма навчальної дисциплини "
+        verbose_name_plural = "Програми навчальних дисциплин "
 
 
 class QualificationWork(models.Model):
@@ -83,11 +131,11 @@ class EducationalDegreeQualificationWorks(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     qualification_work = models.ManyToManyField(QualificationWork,
-                                                 verbose_name="Кваліфікаційні роботи",
-                                                 related_name="qualification_works",
-                                                 related_query_name="qualification_work",
-                                                 blank=True
-                                                 )
+                                                verbose_name="Кваліфікаційні роботи",
+                                                related_name="qualification_works",
+                                                related_query_name="qualification_work",
+                                                blank=True
+                                                )
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         latinic_name = unidecode(self.year) + '-' + unidecode(self.degree_name)
@@ -125,10 +173,10 @@ class EducationalDegree(models.Model):
                                          related_query_name="study_plan",
                                          blank=True
                                          )
-    disciplines_programs = models.ManyToManyField(EducationalDegreeDisciplineProgramsFiles,
+    disciplines_programs = models.ManyToManyField(EducationalDegreeDisciplinePrograms,
                                                   verbose_name="Програми навчальних дисциплін",
-                                                  related_name="disciplines_programs",
-                                                  related_query_name="discipline_program",
+                                                  related_name="disciplines_programs_lists",
+                                                  related_query_name="discipline_program_list",
                                                   blank=True
                                                   )
     qualification_works = models.ManyToManyField(EducationalDegreeQualificationWorks,
