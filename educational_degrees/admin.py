@@ -7,7 +7,7 @@ from django.utils.safestring import mark_safe
 
 from .models import (EducationalDegree, EducationalDegreeDetailsFiles, EducationalDegreeDisciplineProgramsFiles,
                      EducationalDegreeStudyProgramsFiles, EducationalDegreeStudyPlansFiles,
-                     EducationalDegreeQualificationWorksFiles)
+                     EducationalDegreeQualificationWorks, QualificationWork)
 
 
 @admin.register(EducationalDegree)
@@ -49,9 +49,18 @@ class EducationalDegreeStudyPlansFilesAdmin(admin.ModelAdmin):
     list_per_page = 10
     search_fields = ('name',)
 
-@admin.register(EducationalDegreeQualificationWorksFiles)
+@admin.register(EducationalDegreeQualificationWorks)
 class EducationalDegreeQualificationWorksFilesAdmin(admin.ModelAdmin):
-    fields = ("name", "file",)
-    list_display = ('name',)
+    fields = ("year", "qualification_work", 'degree_name', 'slug',)
+    list_display = ('year',)
     list_per_page = 10
-    search_fields = ('name',)
+    search_fields = ('year',)
+
+    readonly_fields = ('slug',)
+
+@admin.register(QualificationWork)
+class QualificationWorkAdmin(admin.ModelAdmin):
+    fields = ("full_name", "topic_of_work", "scientific_supervisor")
+    list_display = ('topic_of_work',)
+    list_per_page = 10
+    search_fields = ('topic_of_work',)

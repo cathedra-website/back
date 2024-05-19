@@ -2,7 +2,9 @@ from rest_framework import serializers
 from educational_degrees.models import (EducationalDegree, EducationalDegreeDetailsFiles,
                                         EducationalDegreeStudyProgramsFiles, EducationalDegreeStudyPlansFiles,
                                         EducationalDegreeDisciplineProgramsFiles,
-                                        EducationalDegreeQualificationWorksFiles)
+                                        EducationalDegreeQualificationWorks,
+                                        QualificationWork)
+from employees.serializers import EmployeeShortSerializer
 
 
 class DetailedInfoSerializer(serializers.ModelSerializer):
@@ -30,22 +32,38 @@ class DisciplineProgramsSerializer(serializers.ModelSerializer):
 
 
 class QualificationWorksSerializer(serializers.ModelSerializer):
+    scientific_supervisor = EmployeeShortSerializer(read_only=True)
     class Meta:
-        model = EducationalDegreeQualificationWorksFiles
-        fields = ['name', "file"]
+        model = QualificationWork
+        fields = ['full_name', "topic_of_work", "scientific_supervisor"]
 
+class QualificationWorksShortListSerializer(serializers.ModelSerializer):
+    # qualification_work = QualificationWorksSerializer(many=True, read_only=True)
+    class Meta:
+        model = EducationalDegreeQualificationWorks
+        # model = EducationalDegreeQualificationWorks
+        fields = ['year', "slug"]
+
+
+class QualificationWorksListSerializer(serializers.ModelSerializer):
+    qualification_work = QualificationWorksSerializer(many=True, read_only=True)
+    class Meta:
+        model = EducationalDegreeQualificationWorks
+        lookup_field = 'slug'
+        fields = ['year', "slug", "qualification_work", 'degree_name',]
 
 class EducationalDegreeDetailedSerializer(serializers.ModelSerializer):
     study_programs_desc = StudyProgramsSerializer(many=True, read_only=True)
     study_plans = StudyPlansSerializer(many=True, read_only=True)
     disciplines_programs = DisciplineProgramsSerializer(many=True, read_only=True)
-    qualification_works = QualificationWorksSerializer(many=True, read_only=True)
+    qualification_works = QualificationWorksShortListSerializer(many=True, read_only=True)
 
     class Meta:
         model = EducationalDegree
         lookup_field = 'slug'
         fields = ['name', "description", "slug",
-                  "study_programs_desc", "study_plans", "disciplines_programs", "qualification_works"
+                  "study_programs_desc", "study_plans", "disciplines_programs",
+                  "qualification_works"
                   ]
 
 

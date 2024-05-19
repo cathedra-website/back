@@ -3,10 +3,11 @@ from django.db import models
 from django.utils.text import slugify
 from unidecode import unidecode
 
-from files.models import File
+from employees.models import Employee
 
 
 class EducationalDegreeDetailsFiles(models.Model):
+
     file = models.FileField(upload_to='educational_degrees_files/', verbose_name="Файл")
     name = models.CharField(max_length=255, verbose_name="Назва файла")
     uploaded_at = models.DateTimeField(auto_now_add=True)
@@ -55,16 +56,50 @@ class EducationalDegreeDisciplineProgramsFiles(models.Model):
         verbose_name_plural = "Файли освітніх дисциплин"
 
 
-class EducationalDegreeQualificationWorksFiles(models.Model):
-    file = models.FileField(upload_to='educational_degrees_files/', verbose_name="Файл")
-    name = models.CharField(max_length=255, verbose_name="Назва файла")
-    uploaded_at = models.DateTimeField(auto_now_add=True)
+class QualificationWork(models.Model):
+    full_name = models.CharField(max_length=255, verbose_name="ПІБ студента")
+    topic_of_work = models.CharField(verbose_name="Тема кваліфікаційної роботи")
+
+    scientific_supervisor = models.ForeignKey(to=Employee,
+                                              on_delete=models.SET_NULL,
+                                              null=True,
+                                              blank=True,
+                                              related_name="scientific_supervisors",
+                                              related_query_name="scientific_supervisor",
+                                              verbose_name="Науковий керівник")
+
     def __str__(self):
-        return f"Файл кваліфікаційної роботи: {self.name}"
+        return f"Кваліфікаційна робота {self.full_name} "
 
     class Meta:
-        verbose_name = "Файл кваліфікаційної роботи"
-        verbose_name_plural = "Файли кваліфікаційних робіт"
+        verbose_name = "Кваліфікаційна робота"
+        verbose_name_plural = "Кваліфікаційні роботи"
+
+
+class EducationalDegreeQualificationWorks(models.Model):
+    year = models.CharField(max_length=255, verbose_name="Рік")
+    slug = models.SlugField(max_length=300, verbose_name="Слаг", allow_unicode=True)
+    degree_name = models.CharField(max_length=255, verbose_name="Назва освітнього ступеня")
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    qualification_work = models.ManyToManyField(QualificationWork,
+                                                 verbose_name="Кваліфікаційні роботи",
+                                                 related_name="qualification_works",
+                                                 related_query_name="qualification_work",
+                                                 blank=True
+                                                 )
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        latinic_name = unidecode(self.year) + '-' + unidecode(self.degree_name)
+        self.slug = slugify(latinic_name, allow_unicode=True)
+        super().save(force_insert, force_update, using, update_fields)
+
+    def __str__(self):
+        return f"Кваліфікаційні роботи {self.degree_name} {self.year}"
+
+    class Meta:
+        verbose_name = "Список кваліфікаційних робіт"
+        verbose_name_plural = "Списки кваліфікаційних робіт"
 
 
 class EducationalDegree(models.Model):
@@ -96,10 +131,10 @@ class EducationalDegree(models.Model):
                                                   related_query_name="discipline_program",
                                                   blank=True
                                                   )
-    qualification_works = models.ManyToManyField(EducationalDegreeQualificationWorksFiles,
+    qualification_works = models.ManyToManyField(EducationalDegreeQualificationWorks,
                                                  verbose_name="Кваліфікаційні роботи",
-                                                 related_name="qualification_works",
-                                                 related_query_name="qualification_work",
+                                                 related_name="qualification_works_lists",
+                                                 related_query_name="qualification_work_list",
                                                  blank=True
                                                  )
 
