@@ -36,7 +36,7 @@
     }
   },
   {
-    "model": "educational_degrees.educationaldegreestudyprogramsfiles",
+    "model": "educational_degrees.educationaldegreestudyplansfiles",
     "pk": 1,
     "fields": {
       "file": "educational_degrees_files/details/bachelor/121-SE-2019-202x-plan.pdf",
@@ -45,7 +45,7 @@
     }
   },
   {
-    "model": "educational_degrees.educationaldegreestudyprogramsfiles",
+    "model": "educational_degrees.educationaldegreestudyplansfiles",
     "pk": 2,
     "fields": {
       "file": "educational_degrees_files/details/bachelor/121-SE-2016-2018-plan.pdf",
@@ -54,7 +54,7 @@
     }
   },
   {
-    "model": "educational_degrees.educationaldegreestudyprogramsfiles",
+    "model": "educational_degrees.educationaldegreestudyplansfiles",
     "pk": 3,
     "fields": {
       "file": "educational_degrees_files/details/master/121-SE-2020-202x-plan.pdf",
@@ -63,7 +63,7 @@
     }
   },
   {
-    "model": "educational_degrees.educationaldegreestudyprogramsfiles",
+    "model": "educational_degrees.educationaldegreestudyplansfiles",
     "pk": 4,
     "fields": {
       "file": "educational_degrees_files/details/master/121-SE-2018-2019-plan.pdf",
@@ -77,9 +77,9 @@
         "fields": {
             "name": "Бакалавр",
             "description": "Кафедра інтелектуальних програмних систем здійснює підготовку бакалаврів у галузі 12 Інформаційні технології за спеціальністю 121 Інженерія програмного забезпечення, освітня програма Програмна інженерія.",
-            "detailed_info": [1, 2],
+            "detailed_info": [],
             "study_programs_desc": [1, 2],
-            "study_plans": [],
+            "study_plans": [1, 2],
             "disciplines_programs": [],
             "qualification_works": [],
             "slug": "bakalavr"
@@ -91,9 +91,9 @@
         "fields": {
             "name": "Магістр",
             "description": "Кафедра інтелектуальних програмних систем здійснює підготовку магістрів у галузі 12 Інформаційні технології за спеціальністю 121 Інженерія програмного забезпечення, освітня програма Програмне забезпечення систем.",
-            "detailed_info": [3, 4],
+            "detailed_info": [],
             "study_programs_desc": [3, 4],
-            "study_plans": [],
+            "study_plans": [3, 4],
             "disciplines_programs": [],
             "qualification_works": [],
             "slug": "magistr"
