@@ -1,14 +1,17 @@
+import os
+
 from django.contrib.admin.widgets import AdminTextInputWidget
 from django.contrib.postgres.forms import SimpleArrayField
 from django.core.validators import RegexValidator
 from django.db import models
+from django.core.files import File
 from django.contrib.postgres.fields import ArrayField
 from django import forms
 from django.forms.fields import CharField
 from django.utils.text import slugify
 from unidecode import unidecode
 
-
+from backend.settings import DEFAULT_EMPLOYEE_AVATAR_IMAGE_PATH
 from files.models import File
 
 
@@ -82,8 +85,8 @@ class Employee(models.Model):
     awards = CustomArrayField(models.TextField(max_length=1024), blank=True, default=list, verbose_name="Академічні нагороди "
                                                                                                  "та премії")
 
-    image = models.ImageField(upload_to='employee_images/', null=True, blank=True,
-                              verbose_name='Фото')
+    image = models.ImageField(upload_to='employee_images/', blank=True,
+                              verbose_name='Фото', default='employee_images/default_avatar.jpg')
     chosen_publications = CustomArrayField(models.TextField(max_length=1024), blank=True, default=list,
                                      verbose_name="Вибрані публікації")
     teach_disciplines = models.ManyToManyField(to=TeachDiscipline,
@@ -99,6 +102,9 @@ class Employee(models.Model):
         cyrillic_name = f"{self.last_name}-{self.first_name}-{self.middle_name}"
         latinic_name = unidecode(cyrillic_name)
         self.slug = slugify(latinic_name, allow_unicode=True)
+        if not self.image:
+            self.image.name = DEFAULT_EMPLOYEE_AVATAR_IMAGE_PATH
+
         super().save(force_insert, force_update, using, update_fields)
 
     class Meta:
