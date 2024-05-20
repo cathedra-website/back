@@ -29,13 +29,15 @@ class EmployeeDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Employee
-        fields = 'all'
+        fields = '__all__'
         lookup_field = 'slug'
+
 
 class EmployeeShortSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
         fields = ['last_name', 'first_name', 'middle_name', 'slug']
+
 
 class PositionListWithEmployeesSerializer(serializers.ModelSerializer):
     position_employees = EmployeeListSerializer(many=True, read_only=True)
