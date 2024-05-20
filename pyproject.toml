@@ -16,6 +16,7 @@ psycopg2-binary = "^2.9.9"
 drf-yasg = ">=1.21.7"
 gunicorn = "^22.0.0"
 django-cors-headers = "^4.3.1"
+django-debug-toolbar = "^4.3.0"
 
 
 [tool.poetry.group.dev.dependencies]
