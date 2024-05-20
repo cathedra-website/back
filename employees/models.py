@@ -86,7 +86,7 @@ class Employee(models.Model):
                                                                                                  "та премії")
 
     image = models.ImageField(upload_to='employee_images/', blank=True,
-                              verbose_name='Фото', default='employee_images/default_avatar.jpg')
+                              verbose_name='Фото', default=DEFAULT_EMPLOYEE_AVATAR_IMAGE_PATH)
     chosen_publications = CustomArrayField(models.TextField(max_length=1024), blank=True, default=list,
                                      verbose_name="Вибрані публікації")
     teach_disciplines = models.ManyToManyField(to=TeachDiscipline,
@@ -124,63 +124,3 @@ class Employee(models.Model):
         return f"Співробітник {self.last_name} {self.first_name} {self.middle_name}"
 
 
-class ScientificWorkType(models.Model):
-    name = models.CharField(max_length=255, verbose_name="Назва типу наукових робіт", default='Підручники')
-    slug = models.SlugField(max_length=255, verbose_name="Слаг", allow_unicode=True)
-
-    def save(
-            self, force_insert=False, force_update=False, using=None, update_fields=None
-    ):
-        self.slug = slugify(unidecode(self.name), allow_unicode=True)
-        super().save(force_insert, force_update, using, update_fields)
-
-    class Meta:
-        verbose_name = 'Тип наукових робіт'
-        verbose_name_plural = 'Типи наукових робіт'
-        constraints = (models.UniqueConstraint(fields=('name',), name='worktype_name_unique_constraint'),
-                       models.UniqueConstraint(fields=('slug',), name='worktype_slug_unique_constraint'))
-        indexes = (models.Index(fields=('name',), name='worktype_name_index'),
-                   models.Index(fields=('slug',), name='worktype_slug_index'))
-
-    def __str__(self):
-        return f"Тип наукових робіт {self.name}"
-
-
-class ScientificWork(models.Model):
-    name = models.CharField(max_length=512, verbose_name="Назва наукової роботи")
-    publishing_house = models.CharField(max_length=512, verbose_name="Видавництво")
-    size = models.PositiveSmallIntegerField(verbose_name="Кількість сторінок")
-    language = models.CharField(max_length=100, default='українська', verbose_name="Мова")
-    isbn = models.CharField(max_length=17, validators=[RegexValidator(
-        regex=r'^\d{3}-\d{3}-\d{3}-\d{3}-\d$',
-        message='ISBN повинен мати формат XXX-XXX-XXX-XXX-X',
-        code='invalid_format'
-    )], verbose_name="ISBN")
-    image = models.ImageField(verbose_name="Обкладинка наукової роботи", upload_to='scientific_work_images', null=True,
-                              blank=True)
-    file = models.FileField(verbose_name='Вміст наукової роботи', upload_to='scientific_work_files', null=True, blank=True)
-    type = models.ForeignKey(
-        to=ScientificWorkType,
-        on_delete=models.SET_NULL,
-        related_name="scientific_works",
-        related_query_name="scientific_work",
-        null=True,
-        verbose_name="Тип наукової роботи"
-    )
-    workers = models.ManyToManyField(to=Employee,
-                                     related_name="scientific_works",
-                                     related_query_name="scientific_work",
-                                     verbose_name="Автори роботи(Співробітники кафедри)",
-                                     blank=True)
-    coworkers = CustomArrayField(models.CharField(max_length=100), blank=True, default=list,
-                           verbose_name="Автори роботи(інші)")
-    description = models.TextField(max_length=10000, verbose_name="Опис наукової роботи", blank=True)
-
-    class Meta:
-        verbose_name = 'Наукова робота'
-        verbose_name_plural = 'Наукові роботи'
-        # constraints = (models.UniqueConstraint(fields=('name',), name='name_unique_constraint'))
-        # indexes = (models.Index(fields=('name',), name='name_index'))
-
-    def __str__(self):
-        return f"{self.name}(ISBN:{self.isbn})"

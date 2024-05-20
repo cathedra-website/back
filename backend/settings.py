@@ -52,7 +52,9 @@ INSTALLED_APPS = [
     "employees",
     "files",
     "news",
-    "educational_degrees"
+    "educational_degrees",
+    'library',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
@@ -153,3 +155,4 @@ INTERNAL_IPS = [
     '127.0.0.1'
 ]
 DEFAULT_EMPLOYEE_AVATAR_IMAGE_PATH = os.path.join('employee_images', 'default_avatar.jpg')
+DEFAULT_SCIENTIFIC_WORK_IMAGE_PATH = os.path.join('scientific_work_images', 'default_image.jpg')

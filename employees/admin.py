@@ -5,7 +5,7 @@ from django.db import models
 from django.forms import Textarea
 from django.utils.safestring import mark_safe
 
-from .models import Position, Employee, TeachDiscipline, ScientificWorkType, ScientificWork, CustomArrayField
+from .models import Position, Employee, TeachDiscipline, CustomArrayField
 
 
 @admin.register(Position)
@@ -16,18 +16,8 @@ class PositionAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 
-@admin.register(ScientificWorkType)
-class ScientificWorkTypeAdmin(admin.ModelAdmin):
-    fields = ('name', 'slug')
-    list_display = ('name', )
-    readonly_fields = ('slug',)
-    list_per_page = 10
-    search_fields = ('name', )
-
-
 @admin.register(TeachDiscipline)
 class TeachDisciplineAdmin(admin.ModelAdmin):
-
     fields = ('name', 'description', 'time_created', 'time_last_modified')
     readonly_fields = ('time_created', 'time_last_modified')
     list_display = ('name', 'short_description')
@@ -40,31 +30,22 @@ class TeachDisciplineAdmin(admin.ModelAdmin):
         return f"{discipline.description[:20]}..."
 
 
-@admin.register(ScientificWork)
-class ScientificWorkAdmin(admin.ModelAdmin):
-    fields = ('name', 'publishing_house', 'size', 'language', 'isbn', 'type', 'workers', 'coworkers', 'description', 'file', 'image')
-    list_display = ('name', 'size')
-    list_editable = ('size',)
-    save_on_top = True
-    search_fields = ('name', 'isbn')
-    list_per_page = 10
-
-
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.JSONField: {'widget': Textarea(attrs={'rows': 4, 'cols': 40})},
-        CustomArrayField: {'widget': Textarea(attrs={'rows':4})}
+        CustomArrayField: {'widget': Textarea(attrs={'rows': 4})}
     }
     save_on_top = True
-    def default_links_value(self, employee:Employee):
+
+    def default_links_value(self, employee: Employee):
         default_links_value = self.model._meta.get_field('links').get_default()
         return mark_safe(f'<pre>{json.dumps(default_links_value, indent=4)}</pre>')
 
     fields = ('last_name', 'first_name', 'middle_name', 'degree_history', 'position', 'teach_disciplines', 'email',
-              'ranks', 'links',  'study_interests',
-              'diploma_work_topics', 'awards','chosen_publications', 'image', 'employee_photo',
-              'time_created', 'time_last_modified', 'slug', )
+              'ranks', 'links', 'study_interests',
+              'diploma_work_topics', 'awards', 'chosen_publications', 'image', 'employee_photo',
+              'time_created', 'time_last_modified', 'slug',)
     list_display = ('full_name', 'employee_photo')
     #  add 'chosen_publications' as many-to-many field between employee and scientific work;
     # format view of image field in admin panel;
@@ -83,4 +64,3 @@ class EmployeeAdmin(admin.ModelAdmin):
     @admin.display(description='ПІБ')
     def full_name(self, employee: Employee):
         return f'{employee.last_name} {employee.first_name} {employee.middle_name}'
-
