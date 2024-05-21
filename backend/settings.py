@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     "news",
     "educational_degrees",
     'library',
-    'django_filters'
+    'django_filters',
+    'django_dump_load_utf8'
 ]
 
 MIDDLEWARE = [
@@ -100,7 +101,8 @@ DATABASES = {
         "USER": os.getenv("DB_USER"),
         "PASSWORD": os.getenv("DB_PASSWORD"),
         "HOST": os.getenv("DB_HOST"),
-        "PORT": os.getenv("DB_PORT")
+        "PORT": os.getenv("DB_PORT"),
+
     }
 }
 
@@ -156,3 +158,12 @@ INTERNAL_IPS = [
 ]
 DEFAULT_EMPLOYEE_AVATAR_IMAGE_PATH = os.path.join('employee_images', 'default_avatar.jpg')
 DEFAULT_SCIENTIFIC_WORK_IMAGE_PATH = os.path.join('scientific_work_images', 'default_image.jpg')
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+    ]
+}

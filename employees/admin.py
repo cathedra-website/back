@@ -4,6 +4,9 @@ from django.contrib import admin
 from django.db import models
 from django.forms import Textarea
 from django.utils.safestring import mark_safe
+from django import forms
+from django.contrib.postgres.forms import SimpleArrayField
+from django.forms.fields import CharField
 
 from .models import Position, Employee, TeachDiscipline, CustomArrayField
 
@@ -30,13 +33,28 @@ class TeachDisciplineAdmin(admin.ModelAdmin):
         return f"{discipline.description[:20]}..."
 
 
+class EmployeeForm(forms.ModelForm):
+    ranks = SimpleArrayField(CharField(), delimiter=';', widget=Textarea(), required=False, label='Наукові ступені')
+    awards = SimpleArrayField(CharField(), delimiter=';', widget=Textarea(), required=False, label='Академічні нагороди та премії')
+    study_interests = SimpleArrayField(CharField(), delimiter=';', widget=Textarea(), required=False, label='Сфера наукових інтересів')
+    diploma_work_topics = SimpleArrayField(CharField(), delimiter=';', widget=Textarea(), required=False, label='Теми курсових та дипломних робіт')
+    chosen_publications = SimpleArrayField(CharField(), delimiter=';', widget=Textarea(), required=False, label='Обрані публікації')
+
+    class Meta:
+        model = Employee
+        fields = '__all__'
+        labels = {
+            'diploma_work_topics': 'Теми курсових та дипломних робіт'
+        }
+
+
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
     formfield_overrides = {
-        models.JSONField: {'widget': Textarea(attrs={'rows': 4, 'cols': 40})},
-        CustomArrayField: {'widget': Textarea(attrs={'rows': 4})}
+        models.JSONField: {'widget': Textarea(attrs={'rows': 4, 'cols': 40})}
     }
     save_on_top = True
+    form = EmployeeForm
 
     def default_links_value(self, employee: Employee):
         default_links_value = self.model._meta.get_field('links').get_default()

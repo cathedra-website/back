@@ -18,6 +18,7 @@ gunicorn = "^22.0.0"
 django-cors-headers = "^4.3.1"
 django-debug-toolbar = "^4.3.0"
 django-filter = "^24.2"
+django-dump-load-utf8 = "^0.0.4"
 
 
 [tool.poetry.group.dev.dependencies]

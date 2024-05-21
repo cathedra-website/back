@@ -68,7 +68,7 @@ class ScientificWork(models.Model):
                                      related_query_name="scientific_work",
                                      verbose_name="Автори роботи(Співробітники кафедри)",
                                      blank=True)
-    coworkers = CustomArrayField(models.CharField(max_length=100), blank=True, default=list,
+    coworkers = ArrayField(models.CharField(max_length=100), blank=True, default=list,
                            verbose_name="Автори роботи(інші)")
     description = models.TextField(max_length=10000, verbose_name="Опис наукової роботи", blank=True)
 
