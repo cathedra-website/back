@@ -47,7 +47,7 @@ class ScientificWork(models.Model):
     publishing_house = models.CharField(max_length=512, verbose_name="Видавництво")
     size = models.PositiveSmallIntegerField(verbose_name="Кількість сторінок")
     language = models.CharField(max_length=100, default='українська', verbose_name="Мова")
-    isbn = models.CharField(max_length=17, validators=[RegexValidator(
+    isbn = models.CharField(max_length=17, blank=True, validators=[RegexValidator(
         regex=r'^\d{3}-\d{3}-\d{3}-\d{3}-\d$',
         message='ISBN повинен мати формат XXX-XXX-XXX-XXX-X',
         code='invalid_format'
