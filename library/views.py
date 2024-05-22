@@ -36,7 +36,7 @@ class ScientificWorkPagination(pagination.PageNumberPagination):
 class ScientificWorkListView(generics.ListAPIView):
     queryset = ScientificWork.objects.all().select_related('type').prefetch_related(Prefetch(
             'workers',
-            queryset=Employee.objects.only('last_name', 'slug')
+            queryset=Employee.objects.only('last_name', 'first_name', 'middle_name', 'slug')
         ))
     serializer_class = ScientificWorkSerializer
     pagination_class = ScientificWorkPagination

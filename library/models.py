@@ -49,9 +49,9 @@ class ScientificWork(models.Model):
     language = models.CharField(max_length=100, default='українська', verbose_name="Мова")
     isbn = models.CharField(max_length=17, validators=[RegexValidator(
         regex=r'^\d{3}-\d{3}-\d{3}-\d{3}-\d$',
-        message='ISBN повинен мати формат XXX-XXX-XXX-XXX-X',
+        message='ISBN повинен мати формат XXX-XXX-XXX-XXX-X або бути відсутнім',
         code='invalid_format'
-    )], verbose_name="ISBN")
+    )], verbose_name="ISBN", null=True, blank=True)
     image = models.ImageField(verbose_name="Обкладинка наукової роботи", upload_to='scientific_work_images', null=True,
                               blank=True, default=DEFAULT_SCIENTIFIC_WORK_IMAGE_PATH)
     file = models.FileField(verbose_name='Вміст наукової роботи', upload_to='scientific_work_files', null=True, blank=True)
@@ -78,6 +78,7 @@ class ScientificWork(models.Model):
         constraints = (models.UniqueConstraint(fields=('isbn',), name='scientific_work_isbn_unique_constraint'),
                        models.UniqueConstraint(fields=('name',), name='scientific_work_name_unique_constraint'))
         indexes = (models.Index(fields=('name',), name='scientific_work_name_index'),)
+        ordering = ('name',)
 
     def save(
         self, force_insert=False, force_update=False, using=None, update_fields=None

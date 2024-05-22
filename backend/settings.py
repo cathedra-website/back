@@ -159,11 +159,11 @@ INTERNAL_IPS = [
 DEFAULT_EMPLOYEE_AVATAR_IMAGE_PATH = os.path.join('employee_images', 'default_avatar.jpg')
 DEFAULT_SCIENTIFIC_WORK_IMAGE_PATH = os.path.join('scientific_work_images', 'default_image.jpg')
 
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-    ],
-    'DEFAULT_PARSER_CLASSES': [
-        'rest_framework.parsers.JSONParser',
-    ]
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_RENDERER_CLASSES': [
+#         'rest_framework.renderers.JSONRenderer',
+#     ],
+#     'DEFAULT_PARSER_CLASSES': [
+#         'rest_framework.parsers.JSONParser',
+#     ]
+# }

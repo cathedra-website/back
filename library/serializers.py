@@ -11,9 +11,11 @@ class ScientificWorkTypeSerializer(serializers.ModelSerializer):
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
+    short_name = serializers.ReadOnlyField()
+
     class Meta:
         model = Employee
-        fields = ['last_name', 'slug']
+        fields = ['short_name', 'slug']
 
 
 class ScientificWorkSerializer(serializers.ModelSerializer):

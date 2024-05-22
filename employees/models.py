@@ -117,6 +117,12 @@ class Employee(models.Model):
     time_last_modified = models.DateTimeField(auto_now=True, verbose_name="Час останньої зміни сторінки співробітника")
     slug = models.SlugField(max_length=300, verbose_name="Слаг", allow_unicode=True)
 
+    @property
+    def short_name(self):
+        if self.middle_name:
+            return f"{self.last_name} {self.first_name[0]}.{self.middle_name[0]}."
+        return f"{self.last_name} {self.first_name[0]}."
+
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         cyrillic_name = f"{self.last_name}-{self.first_name}-{self.middle_name}"
         latinic_name = unidecode(cyrillic_name)
