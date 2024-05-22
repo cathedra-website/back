@@ -34,4 +34,4 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = 'Панель адміністрування для сайту кафедри Інтелектуальних систем'
-admin.site.index_title = 'Сайт кафедри'
+admin.site.index_title = 'Розділи сайту кафедри'

@@ -25,7 +25,7 @@ class EmployeeListSerializer(serializers.ModelSerializer):
 
 class EmployeeDetailSerializer(serializers.ModelSerializer):
     position = PositionSerializer()
-    teach_disciplines = TeachDisciplineSerializer(many=True)
+    teach_disciplines = TeachDisciplineSerializer(read_only=True, many=True)
 
     class Meta:
         model = Employee

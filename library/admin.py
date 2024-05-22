@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.contrib.postgres.fields import ArrayField
+from django.forms import Textarea
 from django.utils.safestring import mark_safe
 
 from library.models import ScientificWork, ScientificWorkType
@@ -22,6 +24,10 @@ class ScientificWorkAdmin(admin.ModelAdmin):
     list_per_page = 10
     readonly_fields = ('title',)
     list_filter = ('type__name',)
+    formfield_overrides = {
+        ArrayField: {'widget': Textarea(attrs={'rows': 4, 'cols': 40})}
+    }
+    filter_horizontal = ('workers',)
 
     @admin.display(description='Обкладинка')
     def title(self, scientific_work: ScientificWork):

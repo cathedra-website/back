@@ -18,7 +18,7 @@ class ScientificWorkTypeListView(generics.ListAPIView):
 
 
 class ScientificWorkPagination(pagination.PageNumberPagination):
-    page_size = 2
+    page_size = 10
     page_size_query_param = 'limit'
     max_page_size = 15
 
@@ -54,7 +54,7 @@ class ScientificWorkListView(generics.ListAPIView):
         elif name_query_parameter and not type_query_parameter:
             queryset = queryset.filter(Q(name__icontains=name_query_parameter) | Q(isbn__exact=name_query_parameter))
         elif type_query_parameter and not name_query_parameter:
-            queryset = queryset.filter(Q(type__slug=type_query_parameter))
+            queryset = queryset.filter(Q(type__slug__iexact=type_query_parameter))
 
         return queryset
 
