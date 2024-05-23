@@ -19,8 +19,9 @@
     "model": "library.scientificworktype",
     "pk": 3,
     "fields": {
-      "name": "Навчальні посібки",
-      "slug": "navchalьni-posibki"
+      "name": "Навчальні посібники",
+      "slug": "navchalni-posibniki"
+
     }
   },
   {

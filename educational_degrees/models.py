@@ -106,7 +106,7 @@ class EducationalDegreeDisciplinePrograms(models.Model):
 
 class QualificationWork(models.Model):
     full_name = models.CharField(max_length=255, verbose_name="ПІБ студента")
-    topic_of_work = models.CharField(verbose_name="Тема кваліфікаційної роботи")
+    topic_of_work = models.CharField(verbose_name="Тема кваліфікаційної роботи",blank=True)
 
     scientific_supervisor = models.ForeignKey(to=Employee,
                                               on_delete=models.SET_NULL,
@@ -117,11 +117,12 @@ class QualificationWork(models.Model):
                                               verbose_name="Науковий керівник")
 
     def __str__(self):
-        return f"Кваліфікаційна робота {self.full_name} "
+        return f"Кваліфікаційна робота {self.full_name}"
 
     class Meta:
         verbose_name = "Кваліфікаційна робота"
         verbose_name_plural = "Кваліфікаційні роботи"
+        ordering = ('full_name',)
 
 
 class EducationalDegreeQualificationWorks(models.Model):
@@ -136,6 +137,7 @@ class EducationalDegreeQualificationWorks(models.Model):
                                                 related_query_name="qualification_work",
                                                 blank=True
                                                 )
+
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         latinic_name = unidecode(self.year) + '-' + unidecode(self.degree_name)

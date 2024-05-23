@@ -116,12 +116,18 @@ class Employee(models.Model):
     time_created = models.DateTimeField(auto_now_add=True, verbose_name="Час створення сторінки співробітника")
     time_last_modified = models.DateTimeField(auto_now=True, verbose_name="Час останньої зміни сторінки співробітника")
     slug = models.SlugField(max_length=300, verbose_name="Слаг", allow_unicode=True)
+    is_active = models.BooleanField(default=True, verbose_name='Чи є нинішнім співробітником')
 
     @property
     def short_name(self):
-        if self.middle_name:
-            return f"{self.last_name} {self.first_name[0]}.{self.middle_name[0]}."
-        return f"{self.last_name} {self.first_name[0]}."
+        return f"{self.last_name} {self.first_name[0]}.{self.middle_name[0]}."
+
+    @property
+    def short_name_with_position(self):
+        if self.position:
+            return f"{self.position.name} {self.last_name} {self.first_name[0]}.{self.middle_name[0]}"
+        else:
+            return f"Співробітник кафедри {self.last_name} {self.first_name[0]}.{self.middle_name[0]} "
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         cyrillic_name = f"{self.last_name}-{self.first_name}-{self.middle_name}"
@@ -146,6 +152,6 @@ class Employee(models.Model):
         ordering = ('-time_created',)
 
     def __str__(self):
-        return f"Співробітник {self.last_name} {self.first_name} {self.middle_name}"
+        return f"{self.position.name if self.position else 'Співробітник'} {self.last_name} {self.first_name} {self.middle_name}"
 
 

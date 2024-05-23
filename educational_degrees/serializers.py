@@ -5,7 +5,8 @@ from educational_degrees.models import (EducationalDegree, EducationalDegreeDeta
                                         EducationalDegreeDisciplinePrograms, Subject, SubjectBlock,
                                         EducationalDegreeQualificationWorks,
                                         QualificationWork)
-from employees.serializers import EmployeeShortSerializer
+from employees.models import Employee
+
 
 
 class DetailedInfoSerializer(serializers.ModelSerializer):
@@ -53,6 +54,14 @@ class DisciplineProgramsListSerializer(serializers.ModelSerializer):
         model = EducationalDegreeDisciplinePrograms
         lookup_field = 'slug'
         fields = ['year', "slug", "subjects", 'degree_name', ]
+
+
+class EmployeeShortSerializer(serializers.ModelSerializer):
+    short_name_with_position = serializers.ReadOnlyField()
+
+    class Meta:
+        model = Employee
+        fields = ('short_name_with_position', 'slug', 'is_active')
 
 
 class QualificationWorksSerializer(serializers.ModelSerializer):
