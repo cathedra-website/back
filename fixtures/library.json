@@ -16,8 +16,24 @@
     }
   },
   {
+    "model": "library.scientificworktype",
+    "pk": 3,
+    "fields": {
+      "name": "Навчальні посібки",
+      "slug": "navchalьni-posibki"
+    }
+  },
+  {
+    "model": "library.scientificworktype",
+    "pk": 4,
+    "fields": {
+      "name": "Методичні рекомендації",
+      "slug": "metodichni-rekomendaciyi"
+    }
+  },
+  {
     "model": "library.scientificwork",
-    "pk": 7,
+    "pk": 1,
     "fields": {
       "name": "Скінченні автомати: теорія, алгоритми, складність",
       "publishing_house": "Чернівці: Видавничий дім \"Букрек\". – 2020",
@@ -36,7 +52,7 @@
   },
   {
     "model": "library.scientificwork",
-    "pk": 8,
+    "pk": 2,
     "fields": {
       "name": "Дискретна математика: Видання 2",
       "publishing_house": "Чернівці: Видавничий дім \"Букрек\". – 2017",
@@ -55,7 +71,7 @@
   },
   {
     "model": "library.scientificwork",
-    "pk": 9,
+    "pk": 3,
     "fields": {
       "name": "Дискретна математика",
       "publishing_house": "Чернівці: Видавничий дім \"Букрек\". – 2014",
@@ -74,7 +90,7 @@
   },
   {
     "model": "library.scientificwork",
-    "pk": 11,
+    "pk": 4,
     "fields": {
       "name": "Основи дискретної математики: Видання 2",
       "publishing_house": "Київ: Наукова думка. – 2002",
@@ -93,7 +109,7 @@
   },
   {
     "model": "library.scientificwork",
-    "pk": 12,
+    "pk": 5,
     "fields": {
       "name": "Основи дискретної математики Том 1: Видання 1",
       "publishing_house": "Київ: ЛітСофт. – 2000",
@@ -112,7 +128,7 @@
   },
   {
     "model": "library.scientificwork",
-    "pk": 13,
+    "pk": 6,
     "fields": {
       "name": "Основи дискретної математики Том 2: Видання 1",
       "publishing_house": "Київ: ЛітСофт. – 2000",
@@ -131,7 +147,7 @@
   },
   {
     "model": "library.scientificwork",
-    "pk": 14,
+    "pk": 7,
     "fields": {
       "name": "Лінійні діофантові обмеження та їх застосування",
       "publishing_house": "Київ: Інтерсервіс. - 2021",
@@ -150,7 +166,7 @@
   },
   {
     "model": "library.scientificwork",
-    "pk": 15,
+    "pk": 8,
     "fields": {
       "name": "Алгебраїчні аспекти інформаційних технологій: Частина 1, 2-ге видання",
       "publishing_house": "Київ: Інтерсервіс. – 2018",
@@ -170,7 +186,7 @@
   },
   {
     "model": "library.scientificwork",
-    "pk": 16,
+    "pk": 9,
     "fields": {
       "name": "Методи та новітні підходи до проектування, управління і застосування високопродуктивних IT-інфраструктур",
       "publishing_house": "Київ: ВПЦ \"Київський університет\". – 2016",
@@ -190,7 +206,7 @@
   },
   {
     "model": "library.scientificwork",
-    "pk": 17,
+    "pk": 10,
     "fields": {
       "name": "Лінійні Діофантові обмеження та їх застосування",
       "publishing_house": "Чернівці: Видавничий дім \"Букрек\". – 2015",
@@ -209,7 +225,7 @@
   },
   {
     "model": "library.scientificwork",
-    "pk": 18,
+    "pk": 11,
     "fields": {
       "name": "Модельные волны и взаимодействие: Теоретические и прикладные аспекты",
       "publishing_house": "Київ: Наукова думка. – 2014",
@@ -228,7 +244,7 @@
   },
   {
     "model": "library.scientificwork",
-    "pk": 19,
+    "pk": 12,
     "fields": {
       "name": "Онтологические методы и средства обработки предметных знаний",
       "publishing_house": "Луганськ: Східноукраїнський національний університет ім. Даля. – 2012",
@@ -247,7 +263,7 @@
   },
   {
     "model": "library.scientificwork",
-    "pk": 20,
+    "pk": 13,
     "fields": {
       "name": "Алгебраїчні аспекти інформаційних технологій: Частина 1, 1-ше видання",
       "publishing_house": "Київ: Наукова думка. – 2011",
@@ -267,7 +283,7 @@
   },
   {
     "model": "library.scientificwork",
-    "pk": 21,
+    "pk": 14,
     "fields": {
       "name": "Вибрані питання теоретичної інформатики",
       "publishing_house": "Ченстохов: Політехніка Ченстоховська. – 2010",
@@ -281,6 +297,399 @@
       "description": "",
       "workers": [
         3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 15,
+    "fields": {
+      "name": "Основи мови програмування С++: Посібник першокурсника",
+      "publishing_house": "Київ: Логос. – 2020",
+      "size": 90,
+      "language": "українська",
+      "isbn": "978-617-7631-24-7",
+      "image": "scientific_work_images/cppf.jpg",
+      "file": "scientific_work_files/foundations-of-c++-language.pdf",
+      "type": 3,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        8,
+        15,
+        18
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 16,
+    "fields": {
+      "name": "Вступ до методів створення програмних продуктів",
+      "publishing_house": "Київ: Видавничий дім \"Києво-Могилянська Академія\". – 2018",
+      "size": 449,
+      "language": "українська",
+      "isbn": "978-617-7668-00-7",
+      "image": "scientific_work_images/imsd2.jpg",
+      "file": "",
+      "type": 3,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 17,
+    "fields": {
+      "name": "Збірник задач з дискретної математики",
+      "publishing_house": "Чернівці: Видавничий дім \"Букрек\". – 2018",
+      "size": 456,
+      "language": "українська",
+      "isbn": "978-966-399-909-8",
+      "image": "scientific_work_images/ctdm.png",
+      "file": "",
+      "type": 3,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 18,
+    "fields": {
+      "name": "Конкретна алгоритміка",
+      "publishing_house": "Київ: Наукова думка. – 2017",
+      "size": 166,
+      "language": "українська",
+      "isbn": "978-966-00-1641-5",
+      "image": "scientific_work_images/ca.jpg",
+      "file": "",
+      "type": 3,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 19,
+    "fields": {
+      "name": "Прогнозування процесів на основі моделювання часових рядів",
+      "publishing_house": "Київ: КНУТД. – 2017",
+      "size": 324,
+      "language": "українська",
+      "isbn": "978-966-7972-84-4",
+      "image": "scientific_work_images/fpbsts.png",
+      "file": "",
+      "type": 3,
+      "coworkers": "[\"Бідюк П.І.\", \"Щербань В.Ю.\", \"Демківська Т.І.\"]",
+      "description": "",
+      "workers": [
+        7
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 20,
+    "fields": {
+      "name": "Обчислення стаціонарних точок для відношень у Евклідових просторах",
+      "publishing_house": "Київ: ВПЦ \"Київський Університет\". – 2013",
+      "size": 207,
+      "language": "українська",
+      "isbn": "978-966-439-644-5",
+      "image": "scientific_work_images/cfpres.jpg",
+      "file": "",
+      "type": 3,
+      "coworkers": "[\"Васюков О.М.\"]",
+      "description": "",
+      "workers": []
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 21,
+    "fields": {
+      "name": "Мова UML і проектування",
+      "publishing_house": "Київ: Логос – 2012",
+      "size": 122,
+      "language": "українська",
+      "isbn": "978-966-171-536-2",
+      "image": "scientific_work_images/lumlp.jpg",
+      "file": "",
+      "type": 3,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        6,
+        5,
+        14
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 22,
+    "fields": {
+      "name": "Вступ до методів створення програмних продуктів ",
+      "publishing_house": "Чернівці: Букрек. – 2012",
+      "size": 424,
+      "language": "українська",
+      "isbn": "978-966-399-449-9",
+      "image": "scientific_work_images/imsd.jpg",
+      "file": "",
+      "type": 3,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 23,
+    "fields": {
+      "name": "Вступ до некласичної математичної логіки",
+      "publishing_house": "Київ: ВПЦ \"Київський університет\". – 2010",
+      "size": 205,
+      "language": "українська",
+      "isbn": "978-966-439-209-6",
+      "image": "scientific_work_images/inml.jpg",
+      "file": "",
+      "type": 3,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 24,
+    "fields": {
+      "name": "Програмування на С++",
+      "publishing_house": "Київ: ВПЦ \"Київський університет\". – 2009",
+      "size": 159,
+      "language": "українська",
+      "isbn": "978-966-439-217-1",
+      "image": "scientific_work_images/pc++.jpg",
+      "file": "",
+      "type": 3,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 25,
+    "fields": {
+      "name": "Збірник задач з дискретної математики ",
+      "publishing_house": "Київ: Бізнесполіграф. – 2008",
+      "size": 360,
+      "language": "українська",
+      "isbn": "978-966-1517-01-0",
+      "image": "scientific_work_images/ctdm.jpg",
+      "file": "",
+      "type": 3,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        3,
+        16
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 26,
+    "fields": {
+      "name": "Дискретна математика: Вибрані питання",
+      "publishing_house": "Київ: Видавничий дім \"Києво-Могилянська Академія\" . – 2007",
+      "size": 570,
+      "language": "українська",
+      "isbn": "978-966-518-432-4",
+      "image": "scientific_work_images/dmsq.jpg",
+      "file": "",
+      "type": 3,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 27,
+    "fields": {
+      "name": "Курс дискретної математики",
+      "publishing_house": "Київ: Національний авіаційний університет. – 2007",
+      "size": 430,
+      "language": "українська",
+      "isbn": "966-598-353-9",
+      "image": "scientific_work_images/cdm.jpg",
+      "file": "",
+      "type": 3,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 28,
+    "fields": {
+      "name": "Лекции по дискретной математике",
+      "publishing_house": "БХВ: Санкт-Петербург. – 2004",
+      "size": 614,
+      "language": "російська",
+      "isbn": "5-94157-546-7",
+      "image": "scientific_work_images/ldm.jpg",
+      "file": "",
+      "type": 3,
+      "coworkers": "[\"Капітонова Ю.В.\", \"Кривий С.Л.\", \"Летичевський О.А.\", \"Луцький Г.М.\"]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 29,
+    "fields": {
+      "name": "Дискретна математика: Теорія автоматів. Теорія кодування",
+      "publishing_house": "Київ: Київський національний університет імені Тараса Шевченка – 2011",
+      "size": 60,
+      "language": "українська",
+      "isbn": null,
+      "image": "scientific_work_images/dm-atct.jpg",
+      "file": "",
+      "type": 4,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        8,
+        12,
+        13
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 30,
+    "fields": {
+      "name": "Дискретна математика: Комбінаторика. Теорія алгоритмів",
+      "publishing_house": "Київ: Київський національний університет імені Тараса Шевченка – 2011",
+      "size": 75,
+      "language": "українська",
+      "isbn": null,
+      "image": "scientific_work_images/dm-atct.jpg",
+      "file": "",
+      "type": 4,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        8,
+        12,
+        13
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 31,
+    "fields": {
+      "name": "Дискретна математика: Множини",
+      "publishing_house": "Київ: Київський національний університет імені Тараса Шевченка – 2012",
+      "size": 78,
+      "language": "українська",
+      "isbn": null,
+      "image": "scientific_work_images/dm-atct.jpg",
+      "file": "",
+      "type": 4,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        8,
+        12,
+        13
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 32,
+    "fields": {
+      "name": "Дискретна математика: Булеві функції. Теорія графів",
+      "publishing_house": "Київ: Київський національний університет імені Тараса Шевченка – 2012",
+      "size": 75,
+      "language": "українська",
+      "isbn": null,
+      "image": "scientific_work_images/dm-atct.jpg",
+      "file": "",
+      "type": 4,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        8,
+        12,
+        13
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 33,
+    "fields": {
+      "name": "Методичні матеріали до курсу \"Формальні методи побудови програм: Тестування та оцінка надійності\"",
+      "publishing_house": "Київ: Київський національний університет імені Тараса Шевченка – 2014",
+      "size": 112,
+      "language": "українська",
+      "isbn": null,
+      "image": "scientific_work_images/book.jpg",
+      "file": "",
+      "type": 4,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        11
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 34,
+    "fields": {
+      "name": "Лабораторні роботи з курсу \"Формальні методи побудови програм: Тестування та оцінка надійності\"",
+      "publishing_house": "Київ: Київський національний університет імені Тараса Шевченка – 2014",
+      "size": 48,
+      "language": "українська",
+      "isbn": null,
+      "image": "scientific_work_images/book.jpg",
+      "file": "",
+      "type": 4,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        11
       ]
     }
   }
