@@ -62,7 +62,7 @@ class EmployeeAdmin(admin.ModelAdmin):
 
     fields = ('last_name', 'first_name', 'middle_name', 'degree_history', 'position', 'teach_disciplines', 'email',
               'ranks', 'links', 'study_interests',
-              'diploma_work_topics', 'awards', 'chosen_publications', 'image', 'employee_photo',
+              'diploma_work_topics', 'awards', 'chosen_publications', 'image', 'is_active','employee_photo',
               'time_created', 'time_last_modified', 'slug',)
     list_display = ('full_name', 'employee_photo')
     #  add 'chosen_publications' as many-to-many field between employee and scientific work;

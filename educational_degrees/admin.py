@@ -79,12 +79,14 @@ class EducationalDegreeQualificationWorksFilesAdmin(admin.ModelAdmin):
     list_per_page = 10
     search_fields = ('year', 'degree_name')
 
+    filter_horizontal = ('qualification_work',)
+
     readonly_fields = ('slug',)
 
 
 @admin.register(QualificationWork)
 class QualificationWorkAdmin(admin.ModelAdmin):
     fields = ("full_name", "topic_of_work", "scientific_supervisor")
-    list_display = ('topic_of_work',)
+    list_display = ('full_name', 'topic_of_work')
     list_per_page = 10
-    search_fields = ('topic_of_work',)
+    search_fields = ('topic_of_work', 'full_name')
