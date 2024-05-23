@@ -1,0 +1,287 @@
+[
+  {
+    "model": "library.scientificworktype",
+    "pk": 1,
+    "fields": {
+      "name": "Підручники",
+      "slug": "pidruchniki"
+    }
+  },
+  {
+    "model": "library.scientificworktype",
+    "pk": 2,
+    "fields": {
+      "name": "Монографії",
+      "slug": "monografiyi"
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 7,
+    "fields": {
+      "name": "Скінченні автомати: теорія, алгоритми, складність",
+      "publishing_house": "Чернівці: Видавничий дім \"Букрек\". – 2020",
+      "size": 428,
+      "language": "українська",
+      "isbn": "978-617-777-045-8",
+      "image": "scientific_work_images/Скінченні_автомати_теорія_алгоритми_складінстб.png",
+      "file": "",
+      "type": 1,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 8,
+    "fields": {
+      "name": "Дискретна математика: Видання 2",
+      "publishing_house": "Чернівці: Видавничий дім \"Букрек\". – 2017",
+      "size": 568,
+      "language": "українська",
+      "isbn": "978-966-399-550-2",
+      "image": "scientific_work_images/Дискретна_математика_видання_2.png",
+      "file": "",
+      "type": 1,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 9,
+    "fields": {
+      "name": "Дискретна математика",
+      "publishing_house": "Чернівці: Видавничий дім \"Букрек\". – 2014",
+      "size": 568,
+      "language": "українська",
+      "isbn": "978-966-399-550-1",
+      "image": "scientific_work_images/Дискретна_математика.png",
+      "file": "",
+      "type": 1,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 11,
+    "fields": {
+      "name": "Основи дискретної математики: Видання 2",
+      "publishing_house": "Київ: Наукова думка. – 2002",
+      "size": 578,
+      "language": "українська",
+      "isbn": "966-000-622-622-5",
+      "image": "scientific_work_images/Основи_дискретної_математики.jpg",
+      "file": "",
+      "type": 1,
+      "coworkers": "[\"Капітонова Ю.В.\", \"Летичевський О.А.\", \"Луцький Г.М.\", \"Печурін М.К.\"]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 12,
+    "fields": {
+      "name": "Основи дискретної математики Том 1: Видання 1",
+      "publishing_house": "Київ: ЛітСофт. – 2000",
+      "size": 380,
+      "language": "українська",
+      "isbn": "966-954-022-022-4",
+      "image": "scientific_work_images/Основи_дискретної_математики_Том_1_Видання_1.jpg",
+      "file": "",
+      "type": 1,
+      "coworkers": "[\"Капітонова Ю.В.\", \"Летичевський О.А.\", \"Луцький Г.М.\", \"Печурін М.К.\"]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 13,
+    "fields": {
+      "name": "Основи дискретної математики Том 2: Видання 1",
+      "publishing_house": "Київ: ЛітСофт. – 2000",
+      "size": 370,
+      "language": "українська",
+      "isbn": "966-954-022-021-4",
+      "image": "scientific_work_images/Основи_дискретної_математики_Том_2_Видання_1.jpg",
+      "file": "",
+      "type": 1,
+      "coworkers": "[\"Капітонова Ю.В.\", \"Летичевський О.А.\", \"Луцький Г.М.\", \"Печурін М.К.\"]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 14,
+    "fields": {
+      "name": "Лінійні діофантові обмеження та їх застосування",
+      "publishing_house": "Київ: Інтерсервіс. - 2021",
+      "size": 257,
+      "language": "українська",
+      "isbn": "978-966-999-073-0",
+      "image": "scientific_work_images/Лінійні_діофантові_обмеження_та_їх_застосування.jpg",
+      "file": "",
+      "type": 2,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 15,
+    "fields": {
+      "name": "Алгебраїчні аспекти інформаційних технологій: Частина 1, 2-ге видання",
+      "publishing_house": "Київ: Інтерсервіс. – 2018",
+      "size": 412,
+      "language": "українська",
+      "isbn": "978-617-696-718-7",
+      "image": "scientific_work_images/Алгебраїчні_аспекти_інформаційних_технологій_Частина_1_2-ге_видання.jpg",
+      "file": "",
+      "type": 2,
+      "coworkers": "[\"Сергієнко І.В.\"]",
+      "description": "",
+      "workers": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 16,
+    "fields": {
+      "name": "Методи та новітні підходи до проектування, управління і застосування високопродуктивних IT-інфраструктур",
+      "publishing_house": "Київ: ВПЦ \"Київський університет\". – 2016",
+      "size": 447,
+      "language": "українська",
+      "isbn": "978-966-439-858-6",
+      "image": "scientific_work_images/Методи_та_новітні_підходи_до_проектування_управління_і_застосуван_YRkvyUA.jpg",
+      "file": "",
+      "type": 2,
+      "coworkers": "[\"Бойко Ю.В.\", \"Волохов В.М.\", \"Глибовець М.М.\", \"Погорілий С.Д.\", \"Ролік О.І.\", \"Теленик С.Ф.\", \"Ясочка М.В.\"]",
+      "description": "за редакцією член-кореспондента НАН України, доктора фізико-математичних наук, професора Анісімова А.В.",
+      "workers": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 17,
+    "fields": {
+      "name": "Лінійні Діофантові обмеження та їх застосування",
+      "publishing_house": "Чернівці: Видавничий дім \"Букрек\". – 2015",
+      "size": 224,
+      "language": "українська",
+      "isbn": "978-966-399-650-9",
+      "image": "scientific_work_images/Лінійні_Діофантові_обмеження_та_їх_застосування_2.jpg",
+      "file": "",
+      "type": 2,
+      "coworkers": "[]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 18,
+    "fields": {
+      "name": "Модельные волны и взаимодействие: Теоретические и прикладные аспекты",
+      "publishing_house": "Київ: Наукова думка. – 2014",
+      "size": 296,
+      "language": "російська",
+      "isbn": "978-966-001-194-6",
+      "image": "scientific_work_images/Модельные_волны_и_взаимодействие_Теоретические_и_прикладные_аспекты.jpg",
+      "file": "",
+      "type": 2,
+      "coworkers": "[\"Василик П.В.\"]",
+      "description": "",
+      "workers": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 19,
+    "fields": {
+      "name": "Онтологические методы и средства обработки предметных знаний",
+      "publishing_house": "Луганськ: Східноукраїнський національний університет ім. Даля. – 2012",
+      "size": 323,
+      "language": "російська",
+      "isbn": "988-966-590-900-2",
+      "image": "scientific_work_images/Онтологические_методы_и_средства_обработки_предметных_знаний.jpg",
+      "file": "",
+      "type": 2,
+      "coworkers": "[\"Палагін О.В.\", \"Петренко М.Г.\"]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 20,
+    "fields": {
+      "name": "Алгебраїчні аспекти інформаційних технологій: Частина 1, 1-ше видання",
+      "publishing_house": "Київ: Наукова думка. – 2011",
+      "size": 400,
+      "language": "українська",
+      "isbn": "978-966-001-165-6",
+      "image": "scientific_work_images/Алгебраїчні_аспекти_інформаційних_технологій_Частина_1_2-ге_видан_qAhZpYa.jpg",
+      "file": "",
+      "type": 2,
+      "coworkers": "[\"Сергієнко І.В.\"]",
+      "description": "",
+      "workers": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "model": "library.scientificwork",
+    "pk": 21,
+    "fields": {
+      "name": "Вибрані питання теоретичної інформатики",
+      "publishing_house": "Ченстохов: Політехніка Ченстоховська. – 2010",
+      "size": 407,
+      "language": "польська",
+      "isbn": "978-837-193-480-3",
+      "image": "scientific_work_images/Вибрані_питання_теоретичної_інформатики.jpg",
+      "file": "",
+      "type": 2,
+      "coworkers": "[\"Щигол Н.\"]",
+      "description": "",
+      "workers": [
+        3
+      ]
+    }
+  }
+]

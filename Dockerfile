@@ -28,10 +28,10 @@ RUN pip install "poetry==$POETRY_VERSION" && poetry --version
 
 # copy project requirement files here to ensure they will be cached.
 WORKDIR $PYSETUP_PATH
-COPY poetry.lock pyproject.toml ./
+COPY pyproject.toml ./
 
 # Установка зависимостей проекта
-RUN poetry install --no-dev --no-root
+RUN poetry install
 
 
 ###############################################

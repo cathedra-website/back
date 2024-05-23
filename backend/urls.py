@@ -27,7 +27,6 @@ urlpatterns = [
     path('educational_degrees/', include('educational_degrees.urls', namespace="educational_degrees")),
     path('library/', include('library.urls', namespace='library')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger'),
-    path('__debug__/', include('debug_toolbar.urls'))
 ]
 
 if settings.DEBUG:

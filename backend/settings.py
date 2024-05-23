@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.postgres",
-    'debug_toolbar',
     # Libs, frameworks, etc.
     "rest_framework",
     'drf_yasg',
