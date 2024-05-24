@@ -21,7 +21,6 @@
     "fields": {
       "name": "Навчальні посібники",
       "slug": "navchalni-posibniki"
-
     }
   },
   {
@@ -316,8 +315,8 @@
       "coworkers": "[]",
       "description": "",
       "workers": [
-        8,
         15,
+        8,
         18
       ]
     }
@@ -490,8 +489,8 @@
       "coworkers": "[]",
       "description": "",
       "workers": [
-        5,
-        6
+        6,
+        5
       ]
     }
   },
@@ -510,8 +509,8 @@
       "coworkers": "[]",
       "description": "",
       "workers": [
-        3,
-        16
+        16,
+        3
       ]
     }
   },
@@ -587,9 +586,9 @@
       "coworkers": "[]",
       "description": "",
       "workers": [
-        8,
         12,
-        13
+        13,
+        8
       ]
     }
   },
@@ -608,9 +607,9 @@
       "coworkers": "[]",
       "description": "",
       "workers": [
-        8,
         12,
-        13
+        13,
+        8
       ]
     }
   },
@@ -629,9 +628,9 @@
       "coworkers": "[]",
       "description": "",
       "workers": [
-        8,
         12,
-        13
+        13,
+        8
       ]
     }
   },
@@ -650,9 +649,9 @@
       "coworkers": "[]",
       "description": "",
       "workers": [
-        8,
         12,
-        13
+        13,
+        8
       ]
     }
   },
@@ -665,7 +664,7 @@
       "size": 112,
       "language": "українська",
       "isbn": null,
-      "image": "scientific_work_images/book.jpg",
+      "image": "scientific_work_images/book_3BEDyNG.png",
       "file": "",
       "type": 4,
       "coworkers": "[]",
@@ -684,7 +683,7 @@
       "size": 48,
       "language": "українська",
       "isbn": null,
-      "image": "scientific_work_images/book.jpg",
+      "image": "scientific_work_images/book.png",
       "file": "",
       "type": 4,
       "coworkers": "[]",
