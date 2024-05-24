@@ -117,7 +117,7 @@ class QualificationWork(models.Model):
                                               verbose_name="Науковий керівник")
 
     def __str__(self):
-        return f"Кваліфікаційна робота {self.full_name}"
+        return f"Кваліфікаційна робота {self.full_name} {self.topic_of_work}"
 
     class Meta:
         verbose_name = "Кваліфікаційна робота"

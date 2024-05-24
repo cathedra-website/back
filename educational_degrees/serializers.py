@@ -55,7 +55,7 @@ class SubjectSerializer(serializers.ModelSerializer):
 
 class DisciplineProgramsListSerializer(serializers.ModelSerializer):
     # "Програми навчальних дисциплін"
-    subjects_by_semester = serializers.SerializerMethodField()
+    subjects_by_semester = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = EducationalDegreeDisciplinePrograms
