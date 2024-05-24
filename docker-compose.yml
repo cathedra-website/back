@@ -2,7 +2,11 @@ services:
   backend:
     build:
       context: ${BACK_DIR_PATH}/
-    command: python manage.py runserver 0.0.0.0:8000
+    command: bash -c "
+      python manage.py makemigrations;
+      python manage.py migrate;
+      python script.py;
+      python manage.py runserver 0.0.0.0:8000"
     env_file:
       - .env
     ports:
