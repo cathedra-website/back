@@ -12,24 +12,24 @@ class EducationalDegreeDetailsFiles(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Файл опису наукового ступіня: {self.name}"
+        return f"Файл опису освітньої програми: {self.name}"
 
     class Meta:
-        verbose_name = "Файл опису наукового ступіня"
-        verbose_name_plural = "Файли опису наукового ступіня"
+        verbose_name = "Файл опису освітньої програми"
+        verbose_name_plural = "Файли опису освітніх програм"
 
 
-class EducationalDegreeStudyProgramsFiles(models.Model):
-    file = models.FileField(upload_to='educational_degrees_files/', verbose_name="Файл")
-    name = models.CharField(max_length=255, verbose_name="Назва файла")
-    uploaded_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"Файл освітньої програми: {self.name}"
-
-    class Meta:
-        verbose_name = "Файл освітньої програми"
-        verbose_name_plural = "Файли освітніх програм"
+# class EducationalDegreeStudyProgramsFiles(models.Model):
+#     file = models.FileField(upload_to='educational_degrees_files/', verbose_name="Файл")
+#     name = models.CharField(max_length=255, verbose_name="Назва файла")
+#     uploaded_at = models.DateTimeField(auto_now_add=True)
+#
+#     def __str__(self):
+#         return f"Файл освітньої програми: {self.name}"
+#
+#     class Meta:
+#         verbose_name = "Файл освітньої програми"
+#         verbose_name_plural = "Файли освітніх програм"
 
 
 class EducationalDegreeStudyPlansFiles(models.Model):
@@ -158,17 +158,17 @@ class EducationalDegree(models.Model):
     slug = models.SlugField(max_length=300, verbose_name="Слаг", allow_unicode=True)
 
     detailed_info = models.ManyToManyField(EducationalDegreeDetailsFiles,
-                                           verbose_name="Описи освітнього ступіня",
+                                           verbose_name="Описи освітньої програми",
                                            related_name="detailed_info_files",
                                            related_query_name="detailed_info_file",
                                            blank=True
                                            )
-    study_programs_desc = models.ManyToManyField(EducationalDegreeStudyProgramsFiles,
-                                                 verbose_name="Описи освітньої програми",
-                                                 related_name="study_programs",
-                                                 related_query_name="study_program",
-                                                 blank=True
-                                                 )
+    # study_programs_desc = models.ManyToManyField(EducationalDegreeStudyProgramsFiles,
+    #                                              verbose_name="Описи освітньої програми",
+    #                                              related_name="study_programs",
+    #                                              related_query_name="study_program",
+    #                                              blank=True
+    #                                              )
     study_plans = models.ManyToManyField(EducationalDegreeStudyPlansFiles,
                                          verbose_name="Навчальні плани",
                                          related_name="study_plans",

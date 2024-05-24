@@ -6,15 +6,14 @@ from django.forms import Textarea
 from django.utils.safestring import mark_safe
 
 from .models import (EducationalDegree, EducationalDegreeDetailsFiles, EducationalDegreeDisciplinePrograms,
-                     Subject, SubjectBlock,
-                     EducationalDegreeStudyProgramsFiles, EducationalDegreeStudyPlansFiles,
+                     Subject, SubjectBlock,EducationalDegreeStudyPlansFiles,
                      EducationalDegreeQualificationWorks, QualificationWork)
 
 
 @admin.register(EducationalDegree)
 class EducationalDegreeAdmin(admin.ModelAdmin):
     fields = ("name", "description", "slug", "qualification_works", "disciplines_programs", "study_plans",
-              "study_programs_desc", "detailed_info")
+         "detailed_info")
     list_display = ('name',)
     list_per_page = 10
     search_fields = ('name',)
@@ -30,12 +29,12 @@ class EducationalDegreeDetailsFilesAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 
-@admin.register(EducationalDegreeStudyProgramsFiles)
-class EducationalDegreeStudyProgramsFilesAdmin(admin.ModelAdmin):
-    fields = ("name", "file",)
-    list_display = ('name',)
-    list_per_page = 10
-    search_fields = ('name',)
+# @admin.register(EducationalDegreeStudyProgramsFiles)
+# class EducationalDegreeStudyProgramsFilesAdmin(admin.ModelAdmin):
+#     fields = ("name", "file",)
+#     list_display = ('name',)
+#     list_per_page = 10
+#     search_fields = ('name',)
 
 
 @admin.register(EducationalDegreeStudyPlansFiles)

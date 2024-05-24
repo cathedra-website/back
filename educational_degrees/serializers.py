@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from collections import defaultdict
 from educational_degrees.models import (EducationalDegree, EducationalDegreeDetailsFiles,
-                                        EducationalDegreeStudyProgramsFiles, EducationalDegreeStudyPlansFiles,
+                                        EducationalDegreeStudyPlansFiles,
                                         EducationalDegreeDisciplinePrograms, Subject, SubjectBlock,
                                         EducationalDegreeQualificationWorks,
                                         QualificationWork)
@@ -15,11 +15,11 @@ class DetailedInfoSerializer(serializers.ModelSerializer):
         fields = ['name', "file"]
 
 
-class StudyProgramsSerializer(serializers.ModelSerializer):
-    # "Описи освітніх програм"
-    class Meta:
-        model = EducationalDegreeStudyProgramsFiles
-        fields = ['name', "file"]
+# class StudyProgramsSerializer(serializers.ModelSerializer):
+#     # "Описи освітніх програм"
+#     class Meta:
+#         model = EducationalDegreeStudyProgramsFiles
+#         fields = ['name', "file"]
 
 
 class StudyPlansSerializer(serializers.ModelSerializer):
@@ -135,7 +135,8 @@ class QualificationWorksListSerializer(serializers.ModelSerializer):
 
 
 class EducationalDegreeDetailedSerializer(serializers.ModelSerializer):
-    study_programs_desc = StudyProgramsSerializer(many=True, read_only=True)
+    # study_programs_desc = StudyProgramsSerializer(many=True, read_only=True)
+    detailed_info = DetailedInfoSerializer(many=True,read_only=True)
     study_plans = StudyPlansSerializer(many=True, read_only=True)
     disciplines_programs = DisciplineProgramsShortListSerializer(many=True, read_only=True)
     qualification_works = QualificationWorksShortListSerializer(many=True, read_only=True)
@@ -144,7 +145,7 @@ class EducationalDegreeDetailedSerializer(serializers.ModelSerializer):
         model = EducationalDegree
         lookup_field = 'slug'
         fields = ['name', "description", "slug",
-                  "study_programs_desc", "study_plans",
+                   "study_plans", "detailed_info",
                   "disciplines_programs",
                   "qualification_works"
                   ]
