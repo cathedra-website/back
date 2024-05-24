@@ -315,8 +315,8 @@
       "coworkers": "[]",
       "description": "",
       "workers": [
-        15,
         8,
+        15,
         18
       ]
     }
@@ -586,9 +586,9 @@
       "coworkers": "[]",
       "description": "",
       "workers": [
-        12,
         13,
-        8
+        8,
+        12
       ]
     }
   },
@@ -607,9 +607,9 @@
       "coworkers": "[]",
       "description": "",
       "workers": [
-        12,
         13,
-        8
+        8,
+        12
       ]
     }
   },
@@ -628,9 +628,9 @@
       "coworkers": "[]",
       "description": "",
       "workers": [
-        12,
         13,
-        8
+        8,
+        12
       ]
     }
   },
@@ -649,9 +649,9 @@
       "coworkers": "[]",
       "description": "",
       "workers": [
-        12,
         13,
-        8
+        8,
+        12
       ]
     }
   },

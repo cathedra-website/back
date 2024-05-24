@@ -12,24 +12,24 @@ class EducationalDegreeDetailsFiles(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
+        return f"Файл детальної інформації при науковий ступінь: {self.name}"
+
+    class Meta:
+        verbose_name = "Файл детальної інформації при науковий ступінь"
+        verbose_name_plural = "Файли детальної інформації при наукові ступені"
+
+
+class EducationalDegreeStudyProgramsFiles(models.Model):
+    file = models.FileField(upload_to='educational_degrees_files/', verbose_name="Файл")
+    name = models.CharField(max_length=255, verbose_name="Назва файла")
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
         return f"Файл опису освітньої програми: {self.name}"
 
     class Meta:
         verbose_name = "Файл опису освітньої програми"
         verbose_name_plural = "Файли опису освітніх програм"
-
-
-# class EducationalDegreeStudyProgramsFiles(models.Model):
-#     file = models.FileField(upload_to='educational_degrees_files/', verbose_name="Файл")
-#     name = models.CharField(max_length=255, verbose_name="Назва файла")
-#     uploaded_at = models.DateTimeField(auto_now_add=True)
-#
-#     def __str__(self):
-#         return f"Файл освітньої програми: {self.name}"
-#
-#     class Meta:
-#         verbose_name = "Файл освітньої програми"
-#         verbose_name_plural = "Файли освітніх програм"
 
 
 class EducationalDegreeStudyPlansFiles(models.Model):
@@ -71,11 +71,11 @@ class Subject(models.Model):
     semester = models.IntegerField(verbose_name="Номер семестру")
 
     def __str__(self):
-        return f"Навчальна дисциплина {self.name}"
+        return f"Навчальна дисципліна {self.name} {self.block.name} {self.semester} семестр"
 
     class Meta:
-        verbose_name = "Навчальна дисциплина"
-        verbose_name_plural = "Навчальні дисциплини"
+        verbose_name = "Навчальна дисципліна"
+        verbose_name_plural = "Навчальні дисципліни"
 
 
 class EducationalDegreeDisciplinePrograms(models.Model):
@@ -83,6 +83,8 @@ class EducationalDegreeDisciplinePrograms(models.Model):
     slug = models.SlugField(max_length=300, verbose_name="Слаг", allow_unicode=True)
     degree_name = models.CharField(max_length=255, verbose_name="Назва освітнього ступеня")
     uploaded_at = models.DateTimeField(auto_now_add=True)
+
+
 
     subjects = models.ManyToManyField(Subject,
                                       verbose_name="Навчальні дисциплини",
@@ -92,7 +94,7 @@ class EducationalDegreeDisciplinePrograms(models.Model):
                                       )
 
     def __str__(self):
-        return f"Програма навчальної дисциплини за {self.year} рік"
+        return f"Програма навчальної дисциплини за {self.year} рік({self.degree_name})"
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         latinic_name = unidecode(self.year) + '-' + unidecode(self.degree_name)
@@ -117,7 +119,7 @@ class QualificationWork(models.Model):
                                               verbose_name="Науковий керівник")
 
     def __str__(self):
-        return f"Кваліфікаційна робота {self.full_name} {self.topic_of_work}"
+        return f"Кваліфікаційна робота {self.full_name}.Тема:{self.topic_of_work}"
 
     class Meta:
         verbose_name = "Кваліфікаційна робота"
@@ -158,17 +160,17 @@ class EducationalDegree(models.Model):
     slug = models.SlugField(max_length=300, verbose_name="Слаг", allow_unicode=True)
 
     detailed_info = models.ManyToManyField(EducationalDegreeDetailsFiles,
-                                           verbose_name="Описи освітньої програми",
+                                           verbose_name="Детальна інформація про освітній ступінь",
                                            related_name="detailed_info_files",
                                            related_query_name="detailed_info_file",
                                            blank=True
                                            )
-    # study_programs_desc = models.ManyToManyField(EducationalDegreeStudyProgramsFiles,
-    #                                              verbose_name="Описи освітньої програми",
-    #                                              related_name="study_programs",
-    #                                              related_query_name="study_program",
-    #                                              blank=True
-    #                                              )
+    study_programs_desc = models.ManyToManyField(EducationalDegreeStudyProgramsFiles,
+                                                 verbose_name="Описи освітньої програми",
+                                                 related_name="study_programs",
+                                                 related_query_name="study_program",
+                                                 blank=True
+                                                 )
     study_plans = models.ManyToManyField(EducationalDegreeStudyPlansFiles,
                                          verbose_name="Навчальні плани",
                                          related_name="study_plans",

@@ -1,38 +1,38 @@
 [
   {
-    "model": "educational_degrees.educationaldegreedetailsfiles",
-    "pk": 5,
+    "model": "educational_degrees.educationaldegreestudyprogramsfiles",
+    "pk": 1,
     "fields": {
       "file": "educational_degrees_files/121-SE-2019-202x-program-description.pdf",
       "name": "Опис освітньої програми 2019-202x років(бакалавр)",
-      "uploaded_at": "2024-05-24T10:24:34.084Z"
+      "uploaded_at": "2024-05-24T11:35:56.610Z"
     }
   },
   {
-    "model": "educational_degrees.educationaldegreedetailsfiles",
-    "pk": 6,
+    "model": "educational_degrees.educationaldegreestudyprogramsfiles",
+    "pk": 2,
     "fields": {
       "file": "educational_degrees_files/121-SE-2016-2018-program-description.pdf",
       "name": "Опис освітньої програми 2016-2018 років(бакалавр)",
-      "uploaded_at": "2024-05-24T10:25:29.804Z"
+      "uploaded_at": "2024-05-24T11:36:12.151Z"
     }
   },
   {
-    "model": "educational_degrees.educationaldegreedetailsfiles",
-    "pk": 7,
+    "model": "educational_degrees.educationaldegreestudyprogramsfiles",
+    "pk": 3,
     "fields": {
       "file": "educational_degrees_files/121-SE-2020-202x-program-description.pdf",
       "name": "Опис освітньої програми 2020-202x років(магістр)",
-      "uploaded_at": "2024-05-24T10:26:12.674Z"
+      "uploaded_at": "2024-05-24T11:36:28.324Z"
     }
   },
   {
-    "model": "educational_degrees.educationaldegreedetailsfiles",
-    "pk": 8,
+    "model": "educational_degrees.educationaldegreestudyprogramsfiles",
+    "pk": 4,
     "fields": {
       "file": "educational_degrees_files/121-SE-2018-2019-program-description.pdf",
       "name": "Опис освітньої програми 2018-2019 років(магістр)",
-      "uploaded_at": "2024-05-24T10:26:40.809Z"
+      "uploaded_at": "2024-05-24T11:37:18.985Z"
     }
   },
   {
@@ -69,6 +69,1110 @@
       "file": "educational_degrees_files/121-SE-2018-2019-plan.pdf",
       "name": "Навчальний план 2018-2019 років(магістр)",
       "uploaded_at": "2024-05-24T10:32:50.090Z"
+    }
+  },
+  {
+    "model": "educational_degrees.subjectblock",
+    "pk": 1,
+    "fields": {
+      "name": "ОД",
+      "full_name": "блок обов'язкових дисциплін"
+    }
+  },
+  {
+    "model": "educational_degrees.subjectblock",
+    "pk": 2,
+    "fields": {
+      "name": "ІС",
+      "full_name": "блок вибору \"Інтелектуальні системи\""
+    }
+  },
+  {
+    "model": "educational_degrees.subjectblock",
+    "pk": 3,
+    "fields": {
+      "name": "ПІ",
+      "full_name": "блок вибору \"Програмна інженерія\""
+    }
+  },
+  {
+    "model": "educational_degrees.subjectblock",
+    "pk": 4,
+    "fields": {
+      "name": "ВП1",
+      "full_name": "вибірковий перелік №1"
+    }
+  },
+  {
+    "model": "educational_degrees.subjectblock",
+    "pk": 5,
+    "fields": {
+      "name": "ВП2",
+      "full_name": "вибірковий перелік №2"
+    }
+  },
+  {
+    "model": "educational_degrees.subjectblock",
+    "pk": 6,
+    "fields": {
+      "name": "ВП3",
+      "full_name": "вибірковий перелік №3"
+    }
+  },
+  {
+    "model": "educational_degrees.subjectblock",
+    "pk": 7,
+    "fields": {
+      "name": "ВП4",
+      "full_name": "вибірковий перелік №4"
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 1,
+    "fields": {
+      "name": "Алгебра та геометрія",
+      "block": 1,
+      "semester": 1
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 2,
+    "fields": {
+      "name": "Вступ до універститеських студій",
+      "block": 1,
+      "semester": 1
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 3,
+    "fields": {
+      "name": "Дискретна математика",
+      "block": 1,
+      "semester": 1
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 4,
+    "fields": {
+      "name": "Іноземна мова",
+      "block": 1,
+      "semester": 1
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 5,
+    "fields": {
+      "name": "Математичний аналіз",
+      "block": 1,
+      "semester": 1
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 6,
+    "fields": {
+      "name": "Основи програмування",
+      "block": 1,
+      "semester": 1
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 7,
+    "fields": {
+      "name": "Фізичні основи комп'ютерної електроніки",
+      "block": 1,
+      "semester": 1
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 8,
+    "fields": {
+      "name": "Алгебра та геометрія",
+      "block": 1,
+      "semester": 2
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 9,
+    "fields": {
+      "name": "Дискретна математика",
+      "block": 1,
+      "semester": 2
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 10,
+    "fields": {
+      "name": "Іноземна мова",
+      "block": 1,
+      "semester": 2
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 11,
+    "fields": {
+      "name": "Математичний аналіз",
+      "block": 1,
+      "semester": 2
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 12,
+    "fields": {
+      "name": "Програмування",
+      "block": 1,
+      "semester": 2
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 13,
+    "fields": {
+      "name": "Фізичні основи комп'ютерної електроніки",
+      "block": 1,
+      "semester": 2
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 15,
+    "fields": {
+      "name": "Загальна алгебра",
+      "block": 1,
+      "semester": 4
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 16,
+    "fields": {
+      "name": "Організація баз даних та знань",
+      "block": 1,
+      "semester": 3
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 22,
+    "fields": {
+      "name": "Аналіз даних",
+      "block": 1,
+      "semester": 4
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 23,
+    "fields": {
+      "name": "Дослідження операцій",
+      "block": 1,
+      "semester": 4
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 24,
+    "fields": {
+      "name": "Основи об'єктно-орієнтованого програмування",
+      "block": 1,
+      "semester": 4
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 25,
+    "fields": {
+      "name": "Розробка WEB-орієнтованих систем",
+      "block": 1,
+      "semester": 4
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 26,
+    "fields": {
+      "name": "Теорія алгоритмів та математична логіка",
+      "block": 1,
+      "semester": 4
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 27,
+    "fields": {
+      "name": "Українська та зарубіжна культура",
+      "block": 1,
+      "semester": 4
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 28,
+    "fields": {
+      "name": "Математичні основи захисту інформації",
+      "block": 2,
+      "semester": 5
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 29,
+    "fields": {
+      "name": "Розподілені обчислення",
+      "block": 3,
+      "semester": 5
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 30,
+    "fields": {
+      "name": "Моделювання систем",
+      "block": 1,
+      "semester": 5
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 31,
+    "fields": {
+      "name": "Науковий образ світу",
+      "block": 1,
+      "semester": 5
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 32,
+    "fields": {
+      "name": "Нейронні мережі",
+      "block": 2,
+      "semester": 5
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 33,
+    "fields": {
+      "name": "Програмування мовою Ruby",
+      "block": 3,
+      "semester": 5
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 34,
+    "fields": {
+      "name": "Об'єктно-орієнтоване програмування",
+      "block": 1,
+      "semester": 5
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 35,
+    "fields": {
+      "name": "Операційні системи",
+      "block": 1,
+      "semester": 5
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 36,
+    "fields": {
+      "name": "Філософія",
+      "block": 1,
+      "semester": 5
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 37,
+    "fields": {
+      "name": "Чисельні методи в інформатиці",
+      "block": 1,
+      "semester": 5
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 38,
+    "fields": {
+      "name": "Виробнича практика \"Сучасні інформаційні системи та технології\"",
+      "block": 1,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 39,
+    "fields": {
+      "name": "Екологічні та економічні процеси та їх моделювання",
+      "block": 1,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 40,
+    "fields": {
+      "name": "Курсова робота",
+      "block": 2,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 41,
+    "fields": {
+      "name": "Курсова робота",
+      "block": 3,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 42,
+    "fields": {
+      "name": "Об'єктно-орієнтоване програмування",
+      "block": 1,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 43,
+    "fields": {
+      "name": "Основи побудови компіляторів",
+      "block": 1,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 44,
+    "fields": {
+      "name": "Програмування мовою Python",
+      "block": 2,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 45,
+    "fields": {
+      "name": "Основи криптології",
+      "block": 3,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 46,
+    "fields": {
+      "name": "Соціально-політичні студії",
+      "block": 1,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 47,
+    "fields": {
+      "name": "Структурна теорія цифрових автоматів",
+      "block": 2,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 48,
+    "fields": {
+      "name": "Обчислювальна геометрія та комп'ютерна графіка",
+      "block": 3,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 49,
+    "fields": {
+      "name": "Іноземна мова",
+      "block": 1,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 50,
+    "fields": {
+      "name": "Інформаційні системи",
+      "block": 1,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 51,
+    "fields": {
+      "name": "Математичні основи обчислювальної геометрії",
+      "block": 4,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 52,
+    "fields": {
+      "name": "3D графіка",
+      "block": 4,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 53,
+    "fields": {
+      "name": "Операційні пристрої та методи їх синтезу",
+      "block": 2,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 54,
+    "fields": {
+      "name": "Груповий проект з технологій програмування",
+      "block": 3,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 55,
+    "fields": {
+      "name": "Програмна інженерія",
+      "block": 1,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 56,
+    "fields": {
+      "name": "Системи штучного інтелекту",
+      "block": 2,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 57,
+    "fields": {
+      "name": "Функціональне програмування",
+      "block": 3,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 58,
+    "fields": {
+      "name": "Розробка мультимедійних систем",
+      "block": 5,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 59,
+    "fields": {
+      "name": "Видавничі системи",
+      "block": 5,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 60,
+    "fields": {
+      "name": "Вибрані розділи трудового права і основ підприємницької діяльності",
+      "block": 1,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 61,
+    "fields": {
+      "name": "Інтелектуальні системи на основі знань",
+      "block": 2,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 62,
+    "fields": {
+      "name": "Тестування програмного забезпечення",
+      "block": 3,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 63,
+    "fields": {
+      "name": "Експертні системи",
+      "block": 2,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 64,
+    "fields": {
+      "name": "Комп'ютерні мережі",
+      "block": 3,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 65,
+    "fields": {
+      "name": "Метапрограмування",
+      "block": 2,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 66,
+    "fields": {
+      "name": "Моделі інтелектуальних систем",
+      "block": 3,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 67,
+    "fields": {
+      "name": "Обробка зображень",
+      "block": 2,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 68,
+    "fields": {
+      "name": "Економіка програмної інженерії",
+      "block": 3,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 69,
+    "fields": {
+      "name": "Підготовка випускної кваліфікаційної роботи бакалавра",
+      "block": 1,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 70,
+    "fields": {
+      "name": "Програмування з обмеженнями",
+      "block": 6,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 71,
+    "fields": {
+      "name": "Комп'ютерна алгебра",
+      "block": 6,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 72,
+    "fields": {
+      "name": "Алгоритми та складність",
+      "block": 1,
+      "semester": 3
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 73,
+    "fields": {
+      "name": "Загальна алгебра",
+      "block": 1,
+      "semester": 3
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 74,
+    "fields": {
+      "name": "Основи об'єктно-орієнтованого програмування",
+      "block": 1,
+      "semester": 3
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 75,
+    "fields": {
+      "name": "Соціально-політичні студії",
+      "block": 1,
+      "semester": 3
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 76,
+    "fields": {
+      "name": "Теорія алгоритмів та математична логіка",
+      "block": 1,
+      "semester": 3
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 77,
+    "fields": {
+      "name": "Теорія ймовірностей, імовірнісні процеси і математична статистика",
+      "block": 1,
+      "semester": 3
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 78,
+    "fields": {
+      "name": "Українська та зарубіжна культура",
+      "block": 1,
+      "semester": 3
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 79,
+    "fields": {
+      "name": "Управління динамічними системами",
+      "block": 1,
+      "semester": 3
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 80,
+    "fields": {
+      "name": "Алгоритми та складність",
+      "block": 1,
+      "semester": 4
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 81,
+    "fields": {
+      "name": "Екологічні та економічні процеси та їх моделювання",
+      "block": 1,
+      "semester": 4
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 82,
+    "fields": {
+      "name": "Науковий образ світу",
+      "block": 1,
+      "semester": 4
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 83,
+    "fields": {
+      "name": "Дослідження операцій",
+      "block": 1,
+      "semester": 5
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 84,
+    "fields": {
+      "name": "Організація баз даних та знань",
+      "block": 1,
+      "semester": 5
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 85,
+    "fields": {
+      "name": "Структурна теорія цифрових автоматів",
+      "block": 1,
+      "semester": 5
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 86,
+    "fields": {
+      "name": "Інформаційні системи",
+      "block": 1,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 87,
+    "fields": {
+      "name": "Комп'ютерна графіка",
+      "block": 3,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 88,
+    "fields": {
+      "name": "Обробка зображень",
+      "block": 3,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 89,
+    "fields": {
+      "name": "Операційні пристрої та методи їх синтезу",
+      "block": 5,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 90,
+    "fields": {
+      "name": "Математичні основи обчислювальної геометрії",
+      "block": 5,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 91,
+    "fields": {
+      "name": "Розподілені обчислення",
+      "block": 3,
+      "semester": 6
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 92,
+    "fields": {
+      "name": "Розробка мультимедійних систем",
+      "block": 6,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 93,
+    "fields": {
+      "name": "Видавничі системи",
+      "block": 6,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 94,
+    "fields": {
+      "name": "Виробнича практика \"Сучасні інформаційні системи та технології\"",
+      "block": 1,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 95,
+    "fields": {
+      "name": "Інформаційні системи",
+      "block": 1,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 96,
+    "fields": {
+      "name": "Комп'ютерні мережі",
+      "block": 3,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 97,
+    "fields": {
+      "name": "Метапрограмування",
+      "block": 3,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 98,
+    "fields": {
+      "name": "Нейронні мережі",
+      "block": 3,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 99,
+    "fields": {
+      "name": "Програмна інженерія",
+      "block": 3,
+      "semester": 7
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 100,
+    "fields": {
+      "name": "Експертні системи",
+      "block": 4,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 101,
+    "fields": {
+      "name": "3D графіка",
+      "block": 4,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 102,
+    "fields": {
+      "name": "Математичні основи захисту інформації",
+      "block": 3,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 103,
+    "fields": {
+      "name": "Програмування з обмеженнями",
+      "block": 7,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 104,
+    "fields": {
+      "name": "Комп'ютерна алгебра",
+      "block": 7,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 105,
+    "fields": {
+      "name": "Системи штучного інтелекту",
+      "block": 3,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.subject",
+    "pk": 106,
+    "fields": {
+      "name": "Функціональне програмування",
+      "block": 3,
+      "semester": 8
+    }
+  },
+  {
+    "model": "educational_degrees.educationaldegreedisciplineprograms",
+    "pk": 1,
+    "fields": {
+      "year": "2019-202x",
+      "slug": "2019-202x-bakalavr",
+      "degree_name": "Бакалавр",
+      "uploaded_at": "2024-05-24T13:03:36.518Z",
+      "subjects": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        16,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        76,
+        77,
+        79
+      ]
+    }
+  },
+  {
+    "model": "educational_degrees.educationaldegreedisciplineprograms",
+    "pk": 2,
+    "fields": {
+      "year": "2016-2018",
+      "slug": "2016-2018-bakalavr",
+      "degree_name": "Бакалавр",
+      "uploaded_at": "2024-05-24T13:34:31.066Z",
+      "subjects": [
+        22,
+        24,
+        25,
+        26,
+        30,
+        34,
+        35,
+        36,
+        37,
+        41,
+        42,
+        43,
+        45,
+        49,
+        54,
+        60,
+        64,
+        69,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ]
     }
   },
   {
@@ -1945,24 +3049,6 @@
   },
   {
     "model": "educational_degrees.qualificationwork",
-    "pk": 210,
-    "fields": {
-      "full_name": "Кудін Дмитро Миколайович",
-      "topic_of_work": "Розробка та аналіз продуктивності мобільних застосунків на базі кросплатформенних фреймворків",
-      "scientific_supervisor": 10
-    }
-  },
-  {
-    "model": "educational_degrees.qualificationwork",
-    "pk": 211,
-    "fields": {
-      "full_name": "Погибко Іван Сергійович",
-      "topic_of_work": "Проектування та розробка інтерфейсу адміністративного модуля для сервісу розкладу занять",
-      "scientific_supervisor": 7
-    }
-  },
-  {
-    "model": "educational_degrees.qualificationwork",
     "pk": 212,
     "fields": {
       "full_name": "Попов Нікіта Вікторович",
@@ -1977,6 +3063,672 @@
       "full_name": "Рева Владислав Валерійович",
       "topic_of_work": "Моделювання децентралізованих протоколів консенсуса перспективних криптовалют",
       "scientific_supervisor": 9
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 215,
+    "fields": {
+      "full_name": "Кудін Дмитро Миколайович",
+      "topic_of_work": "Розробка та аналіз продуктивності мобільних застосунків на базі кросплатформенних фреймворків",
+      "scientific_supervisor": 10
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 216,
+    "fields": {
+      "full_name": "Погибко Іван Сергійович",
+      "topic_of_work": "Проектування та розробка інтерфейсу адміністративного модуля для сервісу розкладу занять",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 217,
+    "fields": {
+      "full_name": "Смєлова Анастасія Вікторівна",
+      "topic_of_work": "Використання багатоатрибутної класифікації для знаходження відповідей на запитання до зображень",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 218,
+    "fields": {
+      "full_name": "Антонюк Василь Тарасович",
+      "topic_of_work": "Алгоритми розв'язання систем лінійних діофантових рівнянь в області {0,1} та їх модифікації",
+      "scientific_supervisor": 3
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 219,
+    "fields": {
+      "full_name": "Антюк Андрій Павлович",
+      "topic_of_work": "Розробка системи для генерації та моделювання планет земної групи",
+      "scientific_supervisor": 14
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 220,
+    "fields": {
+      "full_name": "Бабій Павло Миколайович",
+      "topic_of_work": "Розробка системи для симуляції та аналізу стратегій збору інформації про переваги користувача",
+      "scientific_supervisor": 31
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 221,
+    "fields": {
+      "full_name": "Білецький Вадим Павлович",
+      "topic_of_work": "Використання алгоритмів комп'ютерного зору у проблемах автоматизованих систем",
+      "scientific_supervisor": 9
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 222,
+    "fields": {
+      "full_name": "Бондюк Владислав Володимирович",
+      "topic_of_work": "Моделювання та візуалізація руху автомобілів",
+      "scientific_supervisor": 30
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 223,
+    "fields": {
+      "full_name": "Гогерчак Григорій Іванович",
+      "topic_of_work": "Методи та алгоритми розв’язання систем лінійних рівнянь у скінченних полях простої характеристики",
+      "scientific_supervisor": 3
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 224,
+    "fields": {
+      "full_name": "Димов Костянтин Володимирович",
+      "topic_of_work": "Розробка алгоритму планування маршрутів подорожей на основі генетичного алгоритму та технологій машинного навчання",
+      "scientific_supervisor": 14
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 225,
+    "fields": {
+      "full_name": "Заколенко Роман Костянтинович",
+      "topic_of_work": "Розробка типобезпечного драйвера до розподіленої бази даних «Сassandra»",
+      "scientific_supervisor": 31
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 226,
+    "fields": {
+      "full_name": "Луцюк Анастасія Валеріївна",
+      "topic_of_work": "Розробка алгоритму для розпізнавання підозрілої активності та аналізу шаблонів поведінки в соціальних мережах",
+      "scientific_supervisor": 14
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 227,
+    "fields": {
+      "full_name": "Осиков Віталій Васильович",
+      "topic_of_work": "Розробка системи для аналізу аудіофалів та їх класифікація за допомогою нейронної мережі",
+      "scientific_supervisor": 31
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 228,
+    "fields": {
+      "full_name": "Семенович Володимир Дмитрович",
+      "topic_of_work": "Використання алгоритмів машинного навчання у проблемах автоматизованих систем",
+      "scientific_supervisor": 9
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 229,
+    "fields": {
+      "full_name": "Сиротенко Олександр Романович",
+      "topic_of_work": "Реалізація масивних операцій над пам'яттю в браузерному форматі WebAssemly",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 230,
+    "fields": {
+      "full_name": "Соляр Анна Сергіївна",
+      "topic_of_work": "Реалізація життєвого циклу розробки програмного забезпечення на прикладі системи для інтерактивного навчання програмуванню",
+      "scientific_supervisor": 18
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 231,
+    "fields": {
+      "full_name": "Стеценко Олександр Олегович",
+      "topic_of_work": "Мультиагентні методи розробки кіберфізичних систем",
+      "scientific_supervisor": 2
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 232,
+    "fields": {
+      "full_name": "Тимченко Оксана Олександрівна",
+      "topic_of_work": "Передбачення поведінки користувача на обмежених вхідних даних",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 233,
+    "fields": {
+      "full_name": "Туровська Юлія Андріївна",
+      "topic_of_work": "Розробка системи інформаційної підтримки діяльності менеджера підприємства",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 234,
+    "fields": {
+      "full_name": "Цибуля Діана Вадимівна",
+      "topic_of_work": "Розробка програмного забезпечення для класифікації та кластеризації інформаційних потоків",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 235,
+    "fields": {
+      "full_name": "Якубів Віктор Романович",
+      "topic_of_work": "Персоналізована рекомендаційна система наукових публікацій",
+      "scientific_supervisor": 28
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 236,
+    "fields": {
+      "full_name": "Яценко Юрій Іванович",
+      "topic_of_work": "Інтелектуальна інформаційна система для контролю швидкості відтворення відеоряду",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 237,
+    "fields": {
+      "full_name": "Дегтяр Тарас Володимирович",
+      "topic_of_work": "Застосування методів машинного навчання для виявлення шахрайства у реферальних системах",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 238,
+    "fields": {
+      "full_name": "Дмитрієв Максим Леонідович",
+      "topic_of_work": "Розробка системи контекстного пошуку",
+      "scientific_supervisor": 6
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 239,
+    "fields": {
+      "full_name": "Зелінський Владислав Віталійович",
+      "topic_of_work": "Розробка додатку з функцією доповненої реальності",
+      "scientific_supervisor": 14
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 240,
+    "fields": {
+      "full_name": "Ількун Олександр Петрович",
+      "topic_of_work": "Розробка веб-сервісу для вирішення задач кластерного аналізу на прикладі онлайн-сховища зображень з інтелектуальним пошуком",
+      "scientific_supervisor": 14
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 241,
+    "fields": {
+      "full_name": "Ільчук Дмитрій Анатолійович",
+      "topic_of_work": "Розробка алгоритму для комп'ютерної генерації зображень на основі текстового опису",
+      "scientific_supervisor": 14
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 242,
+    "fields": {
+      "full_name": "Калініченко Андрій Вікторович",
+      "topic_of_work": "Розробка та дослідження властивостей смарт-контракту на основі блокчейну",
+      "scientific_supervisor": 6
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 243,
+    "fields": {
+      "full_name": "Кожухівський Віталій Андрійович",
+      "topic_of_work": "Моделювання та прогнозування поведінкової активності користувачів сервісів обміну миттєвими повідомленнями",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 244,
+    "fields": {
+      "full_name": "Кохан Євгеній Ігорович",
+      "topic_of_work": "Прогнозування часових рядів із застосуванням рекурентних нейронних мереж",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 245,
+    "fields": {
+      "full_name": "Михайленко Олександр Олександрович",
+      "topic_of_work": "Збір фрагментів документа для відповіді на біо-медичне запитання",
+      "scientific_supervisor": 6
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 246,
+    "fields": {
+      "full_name": "Понікарчук Роман Олександрович",
+      "topic_of_work": "Використання теорії та технологій комп'ютерного зору для виявлення, стеження та класифікації рухомих об'єктів",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 247,
+    "fields": {
+      "full_name": "Стрельніков Владислав Борисович",
+      "topic_of_work": "Проектування, реалізація та супровід інформаційної системи розкладу занять освітнього закладу ІІІ-ІV рівня акредитації",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 248,
+    "fields": {
+      "full_name": "Уваров Дмитро Сергійович",
+      "topic_of_work": "Обчислення карти глибини зображення",
+      "scientific_supervisor": 9
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 249,
+    "fields": {
+      "full_name": "Фризюк Олександр Валерійович",
+      "topic_of_work": "Розробка навігаційної системи на основі сучасних картографічних платформ з можливістю кастомізації",
+      "scientific_supervisor": 12
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 250,
+    "fields": {
+      "full_name": "Цушко Артем Сергійович",
+      "topic_of_work": "Порівняльний аналіз складності аналізу кольорової мережі Петрі та еквівалентної простої мережі Петрі",
+      "scientific_supervisor": 3
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 251,
+    "fields": {
+      "full_name": "Ящук Михайло Володимирович",
+      "topic_of_work": "Дослідження алгоритмів для вирішення задач консенсусу в мережі ненадійних обчислень",
+      "scientific_supervisor": 6
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 252,
+    "fields": {
+      "full_name": "Бердар Михайло Михайлович",
+      "topic_of_work": "Розробка веб-системи для генерації здорового збалансованого харчування. Клієнтська частина",
+      "scientific_supervisor": 6
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 253,
+    "fields": {
+      "full_name": "Біляшевич Аліна Миколаївна",
+      "topic_of_work": "Розробка веб-системи для генерації здорового збалансованого харчування. Клієнтська частина",
+      "scientific_supervisor": 14
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 254,
+    "fields": {
+      "full_name": "Братащук Володимир Володимирови",
+      "topic_of_work": "Розробка інформаційної системи «Розклад навчального процесу» для платформи Android",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 255,
+    "fields": {
+      "full_name": "Гринюк Ярослав Васильович",
+      "topic_of_work": "Розподілена графова база даних",
+      "scientific_supervisor": 14
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 256,
+    "fields": {
+      "full_name": "Дворянов Дмитро Олександрович",
+      "topic_of_work": "Верифікація машинних програм методами символічного виконання",
+      "scientific_supervisor": 3
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 257,
+    "fields": {
+      "full_name": "Карташова Тетяна Миколаївна",
+      "topic_of_work": "Розробка алгоритму морфінгу для відео",
+      "scientific_supervisor": 14
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 258,
+    "fields": {
+      "full_name": "Костенюк Віктор Сергійович",
+      "topic_of_work": "Розробка комплексу дослідження напружено-деформованого стану розгалужених просторових трубопровідних систем",
+      "scientific_supervisor": 13
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 259,
+    "fields": {
+      "full_name": "Коцко Мар'яна Анатоліївна",
+      "topic_of_work": "Моделювання синхронних добутків транзиційних систем засобами мереж Петрі",
+      "scientific_supervisor": 3
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 260,
+    "fields": {
+      "full_name": "Мединський Дмитро Олександрович",
+      "topic_of_work": "Розробка програмного забезпечення для інформаційної підтримки навчального процесу для платформи APPLE iOS",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 261,
+    "fields": {
+      "full_name": "Михайловський Іван Олександрович",
+      "topic_of_work": "Алгоритми вибору лідера в розподілених системах",
+      "scientific_supervisor": 14
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 262,
+    "fields": {
+      "full_name": "Ничик Юрій Романович",
+      "topic_of_work": "Розробка веб-системи для генерації здорового збалансованого раціону харчування. Серверна частина",
+      "scientific_supervisor": 14
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 263,
+    "fields": {
+      "full_name": "Патлякевич Юрій Олексійович",
+      "topic_of_work": "Розробка інформаційного бота для відображення прогнозу погоди через інтерфейс сервісу Skype",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 264,
+    "fields": {
+      "full_name": "Сбітнєва Марія Степанівна",
+      "topic_of_work": "Верифікація машинних програм методами символічного виконання",
+      "scientific_supervisor": 3
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 265,
+    "fields": {
+      "full_name": "Скварковський Євгеній Петрович",
+      "topic_of_work": "Розробка симулятору нормального алгоритму Маркова у мобільному додатку",
+      "scientific_supervisor": 13
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 266,
+    "fields": {
+      "full_name": "Ушакова Олена Олександрівна",
+      "topic_of_work": "Управліня проектами з використанням максимальних незалежних множин вершин графа",
+      "scientific_supervisor": 4
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 267,
+    "fields": {
+      "full_name": "Шевчук Валерій Юрійови",
+      "topic_of_work": "Розробка високопродуктивного кеш-сервера для захисту ігрових серверів від Dos ATAK",
+      "scientific_supervisor": 6
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 268,
+    "fields": {
+      "full_name": "Ямпольський Сергій Олександрович",
+      "topic_of_work": "Розвиток лінгвістичних навиків людини шляхом автоматизації процесу вивчення іноземної мови",
+      "scientific_supervisor": 9
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 269,
+    "fields": {
+      "full_name": "Бабій Гліб Миколайович",
+      "topic_of_work": "Персоналізований підбір текстів для ефективного запам’ятовування іноземної лексики",
+      "scientific_supervisor": 5
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 270,
+    "fields": {
+      "full_name": "Бантиш Олег Віталійович",
+      "topic_of_work": "Інтеграція DSL та візуальної мови програмування",
+      "scientific_supervisor": 6
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 271,
+    "fields": {
+      "full_name": "Біла Ольга Миколаївна",
+      "topic_of_work": "Прикладне застосування нейронних мереж у задачах діагностики",
+      "scientific_supervisor": 9
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 272,
+    "fields": {
+      "full_name": "Білецький Сергій Сергійович",
+      "topic_of_work": "Інтеграція DSL мови в NetBeans IDE",
+      "scientific_supervisor": 6
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 273,
+    "fields": {
+      "full_name": "Головко Яків Юрійович",
+      "topic_of_work": "Використання ІВМ Watson для пошуку смислових зв’язків у тексті",
+      "scientific_supervisor": 32
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 274,
+    "fields": {
+      "full_name": "Єщенко Антон Юрійович",
+      "topic_of_work": "Пошук кращого евристичного алгоритму для проблеми максимальної коаліції в обмеженій кооперативній грі",
+      "scientific_supervisor": 1
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 275,
+    "fields": {
+      "full_name": "Калашніков Богдан Володимирович",
+      "topic_of_work": "Розробка іОS застосунків з використанням шаблонів проектування",
+      "scientific_supervisor": 14
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 276,
+    "fields": {
+      "full_name": "Когут Антоніна Володимирівна",
+      "topic_of_work": "Попередня обробка даних в ДНК обчисленнях",
+      "scientific_supervisor": 1
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 277,
+    "fields": {
+      "full_name": "Ларін Владислав Олегович",
+      "topic_of_work": "Розробка компілятора DSL мови в Java",
+      "scientific_supervisor": 6
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 278,
+    "fields": {
+      "full_name": "Лук'янов Ігор Олегович",
+      "topic_of_work": "Розробка музичного Веб-сервісу з комбінуванням різних видів АРІ",
+      "scientific_supervisor": 14
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 279,
+    "fields": {
+      "full_name": "Макаревич Андрій Олегович",
+      "topic_of_work": "Реалізація конструкцій мови Haskell засобами С++1z",
+      "scientific_supervisor": 12
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 280,
+    "fields": {
+      "full_name": "Мороз Оксана Іванівна",
+      "topic_of_work": "Виявлення контурів зображення методами нечіткої логіки",
+      "scientific_supervisor": 1
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 281,
+    "fields": {
+      "full_name": "Ольгашко Олександр Володимирович",
+      "topic_of_work": "Добування семантичних зв’язків для побудови системи діалогу",
+      "scientific_supervisor": 32
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 282,
+    "fields": {
+      "full_name": "Петелько Юрій Юрійович",
+      "topic_of_work": "Видобування та аналіз інформації, що знаходиться у вільному доступі",
+      "scientific_supervisor": 9
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 283,
+    "fields": {
+      "full_name": "Поляченко Артур Ігорович",
+      "topic_of_work": "Організація груп додатків",
+      "scientific_supervisor": 12
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 284,
+    "fields": {
+      "full_name": "Рагімова Дарина Рауфівна",
+      "topic_of_work": "Розробка системи керування вмістом, що використовує Google App Engine",
+      "scientific_supervisor": 33
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 285,
+    "fields": {
+      "full_name": "Самойленко Максим Юрійович",
+      "topic_of_work": "Отримання 3D моделі за допомогою двовимірних зображень",
+      "scientific_supervisor": 6
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 286,
+    "fields": {
+      "full_name": "Синяк Микита Геннадійович",
+      "topic_of_work": "Розробка інтелектуальної інформаційної системи для перевірки текстів на унікальність",
+      "scientific_supervisor": 7
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 287,
+    "fields": {
+      "full_name": "Чупов Сергій Русланович",
+      "topic_of_work": "Дослідження Backend as a Service платформ. Реалізація бібліотеки Android/Java SDK для хмарного сервісу Backendless",
+      "scientific_supervisor": 5
+    }
+  },
+  {
+    "model": "educational_degrees.qualificationwork",
+    "pk": 288,
+    "fields": {
+      "full_name": "Шевніна Анастасія Анатоліївна",
+      "topic_of_work": "Розробка UI/UX дизайну для музичного Веб-сервісу",
+      "scientific_supervisor": 14
     }
   },
   {
@@ -2258,21 +4010,160 @@
     }
   },
   {
+    "model": "educational_degrees.educationaldegreequalificationworks",
+    "pk": 7,
+    "fields": {
+      "year": "2019-2020",
+      "slug": "2019-2020-magistr",
+      "degree_name": "Магістр",
+      "uploaded_at": "2024-05-24T11:46:21.976Z",
+      "qualification_work": [
+        208,
+        209,
+        215,
+        216,
+        212,
+        213,
+        217
+      ]
+    }
+  },
+  {
+    "model": "educational_degrees.educationaldegreequalificationworks",
+    "pk": 8,
+    "fields": {
+      "year": "2018-2019",
+      "slug": "2018-2019-magistr",
+      "degree_name": "Магістр",
+      "uploaded_at": "2024-05-24T12:01:40.020Z",
+      "qualification_work": [
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236
+      ]
+    }
+  },
+  {
+    "model": "educational_degrees.educationaldegreequalificationworks",
+    "pk": 9,
+    "fields": {
+      "year": "2017-2018",
+      "slug": "2017-2018-magistr",
+      "degree_name": "Магістр",
+      "uploaded_at": "2024-05-24T12:35:43.391Z",
+      "qualification_work": [
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251
+      ]
+    }
+  },
+  {
+    "model": "educational_degrees.educationaldegreequalificationworks",
+    "pk": 10,
+    "fields": {
+      "year": "2016-2017",
+      "slug": "2016-2017-magistr",
+      "degree_name": "Магістр",
+      "uploaded_at": "2024-05-24T12:38:42.233Z",
+      "qualification_work": [
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268
+      ]
+    }
+  },
+  {
+    "model": "educational_degrees.educationaldegreequalificationworks",
+    "pk": 11,
+    "fields": {
+      "year": "2015-2016",
+      "slug": "2015-2016-magistr",
+      "degree_name": "Магістр",
+      "uploaded_at": "2024-05-24T12:45:50.205Z",
+      "qualification_work": [
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        288
+      ]
+    }
+  },
+  {
     "model": "educational_degrees.educationaldegree",
     "pk": 1,
     "fields": {
       "name": "Бакалавр",
       "description": "Кафедра інтелектуальних програмних систем здійснює підготовку бакалаврів у галузі 12 Інформаційні технології за спеціальністю 121 Інженерія програмного забезпечення, освітня програма Програмна інженерія.",
       "slug": "bakalavr",
-      "detailed_info": [
-        5,
-        6
-      ],
+      "detailed_info": [],
+      "study_programs_desc": [],
       "study_plans": [
         5,
         6
       ],
-      "disciplines_programs": [],
+      "disciplines_programs": [
+        1,
+        2
+      ],
       "qualification_works": [
         1,
         2,
@@ -2291,6 +4182,7 @@
       "description": "Кафедра інтелектуальних програмних систем здійснює підготовку магістрів у галузі 12 Інформаційні технології за спеціальністю 121 Інженерія програмного забезпечення, освітня програма Програмне забезпечення систем.",
       "slug": "magistr",
       "detailed_info": [],
+      "study_programs_desc": [],
       "study_plans": [],
       "disciplines_programs": [],
       "qualification_works": []
@@ -2304,6 +4196,7 @@
       "description": "Кафедра інтелектуальних програмних систем здійснює підготовку докторів філософії у галузі 12 Інформаційні технології за спеціальностями 121 Інженерія програмного забезпечення та 122 Комп'ютерні науки.",
       "slug": "doktor-filosofiyi",
       "detailed_info": [],
+      "study_programs_desc": [],
       "study_plans": [],
       "disciplines_programs": [],
       "qualification_works": []
