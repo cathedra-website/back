@@ -10,7 +10,7 @@ from .serializers import EducationalDegreeDetailedSerializer, EducationalDegrees
 
 class EducationalDegreeListView(generics.ListAPIView):
     # return list of all educational degree with short description and slug
-    queryset = EducationalDegree.objects.all().prefetch_related('detailed_info')
+    queryset = EducationalDegree.objects.all().defer('description')
     serializer_class = EducationalDegreesSerializer
 
 
@@ -18,7 +18,7 @@ class EducationalDegreeDetailView(generics.RetrieveAPIView):
     # return detailed information about educational degree(with given slug)
     # detailed information includes lists of "кваліфікаціних робот", "програм навчальних дисциплін",
     # "навчальних планів", "описів освітніх програм" presented in form of lists
-    queryset = EducationalDegree.objects.all().prefetch_related('detailed_info', 'study_plans', 'disciplines_programs')
+    queryset = EducationalDegree.objects.all().prefetch_related('detailed_info', 'study_plans', 'disciplines_programs','qualification_works')
     serializer_class = EducationalDegreeDetailedSerializer
     lookup_field = 'slug'
 

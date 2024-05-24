@@ -152,10 +152,10 @@ class EducationalDegreeDetailedSerializer(serializers.ModelSerializer):
 
 
 class EducationalDegreesSerializer(serializers.ModelSerializer):
-    detailed_info = DetailedInfoSerializer(many=True, read_only=True)
+    # detailed_info = DetailedInfoSerializer(many=True, read_only=True)
 
     class Meta:
         model = EducationalDegree
-        fields = ['name', "description", "slug", "detailed_info"]
+        fields = ['name', "slug"]
 
 
