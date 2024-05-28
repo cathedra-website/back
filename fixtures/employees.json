@@ -1644,5 +1644,83 @@
       "is_active": false,
       "teach_disciplines": []
     }
+  },
+  {
+    "model": "employees.employee",
+    "pk": 31,
+    "fields": {
+        "last_name": "Шкільняк",
+        "first_name": "Степан",
+        "middle_name": "Степанович",
+        "email": null,
+        "ranks": "[]",
+        "links": {
+            "Scopus": ""
+        },
+        "degree_history": "...",
+        "study_interests": "[]",
+        "diploma_work_topics": "[]",
+        "position": 2,
+        "awards": "[]",
+        "image": "employee_images/default_avatar.jpg",
+        "chosen_publications": "[]",
+        "time_created": "2024-05-28T16:21:47.520Z",
+        "time_last_modified": "2024-05-28T16:24:54.024Z",
+        "slug": "shkilniak-stepan-stepanovich",
+        "is_active": false,
+        "teach_disciplines": []
+    }
+},
+{
+    "model": "employees.employee",
+    "pk": 32,
+    "fields": {
+        "last_name": "Марченко",
+        "first_name": "Олександр",
+        "middle_name": "Олександрович",
+        "email": null,
+        "ranks": "[]",
+        "links": {
+            "Scopus": ""
+        },
+        "degree_history": "...",
+        "study_interests": "[]",
+        "diploma_work_topics": "[]",
+        "position": 3,
+        "awards": "[]",
+        "image": "employee_images/default_avatar.jpg",
+        "chosen_publications": "[]",
+        "time_created": "2024-05-28T16:43:57.840Z",
+        "time_last_modified": "2024-05-28T16:43:57.840Z",
+        "slug": "marchenko-oleksandr-oleksandrovich",
+        "is_active": false,
+        "teach_disciplines": []
+    }
+},
+{
+    "model": "employees.employee",
+    "pk": 33,
+    "fields": {
+        "last_name": "Нікітченко",
+        "first_name": "Микола",
+        "middle_name": "Степанович",
+        "email": null,
+        "ranks": "[]",
+        "links": {
+            "Scopus": ""
+        },
+        "degree_history": "...",
+        "study_interests": "[]",
+        "diploma_work_topics": "[]",
+        "position": 2,
+        "awards": "[]",
+        "image": "employee_images/default_avatar.jpg",
+        "chosen_publications": "[]",
+        "time_created": "2024-05-28T16:47:43.503Z",
+        "time_last_modified": "2024-05-28T16:47:43.503Z",
+        "slug": "nikitchenko-mikola-stepanovich",
+        "is_active": false,
+        "teach_disciplines": []
+    }
   }
 ]
